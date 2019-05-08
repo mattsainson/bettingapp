@@ -1,0 +1,29 @@
+{
+  "name": "bettingapp",
+  "version": "1.0.0",
+  "description": "This app allows people to view sporting games, place bets on the games, and accumulate credits.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattsainson/bettingapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattsainson/bettingapp/issues"
+  },
+  "homepage": "https://github.com/mattsainson/bettingapp#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.5",
+    "sequelize-cli": "^5.4.0"
+  }
+}
