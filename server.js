@@ -1,4 +1,4 @@
-// require("dotenv").config();
+require("dotenv").config();
 // *** Dependencies
 // =============================================================
 const express = require("express");
@@ -18,10 +18,10 @@ app.use(express.json());
 
 // Static directory
 if (process.env.NODE_ENV === 'production') {
-    // app.use(express.static('client/build'));
-} 
+    app.use(express.static('client/build'));
+}
 // else {
-    app.use(express.static("public"));
+// app.use(express.static("client/public"));
 // }
 
 // Routes
@@ -57,134 +57,141 @@ db.sequelize.sync(syncOptions).then(function () {
             PORT
         );
     });
-    
-      // db.User.create({
-  //   email: 'user1@vts.com',
-  //   password: '123',
-  //   name: 'user1',
-  //   rank: 100,
-  //   lastLoginAt: '2019-01-01',
-  //   isActive: true
-  // });
 
-  // db.User.create({
-  //   email: 'user2@vts.com',
-  //   password: '123',
-  //   name: 'user2',
-  //   rank: 100,
-  //   lastLoginAt: '2019-01-01',
-  //   isActive: true
-  // });
+    //     db.Bet.create({
+    //     userId: 1,
+    //     gameId: 1,
+    //     teamId: 1,
+    //     betType: 'Spread',
+    //     wager: 200
+    // });
 
-  // db.User.create({
-  //   email: 'tutor@vts.com',
-  //   password: '123',
-  //   name: 'tutor',
-  //   tutorConstraints: '{"available": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "subjects": ["Math","English","History","Science"]}',
-  //   rank: 79.3,
-  //   lastLoginAt: '2019-01-01',
-  //   isActive: true,
-  //   isTutor: true
-  // });
+    // db.Bet.create({
+    //     userId: 1,
+    //     gameId: 2,
+    //     teamId: 2,
+    //     betType: 'Spread',
+    //     wager: 100
+    // });
 
-  // db.User.create({
-  //   email: 'tutor2@vts.com',
-  //   password: '123',
-  //   name: 'tutor',
-  //   tutorConstraints: '{"available": ["Sunday"], "subjects": ["Math"]}',
-  //   rank: 50,
-  //   lastLoginAt: '2019-01-01',
-  //   isActive: true,
-  //   isTutor: true
-  // });
+    // db.Bet.create({
+    //     userId: 1,
+    //     gameId: 3,
+    //     teamId: 1,
+    //     betType: 'Moneyline',
+    //     wager: 300
+    // });
 
-  // db.Request.create({
-  //   requesterId: 1,
-  //   requestDateTime: '2019-01-01',
-  //   durationMin: 25,
-  //   subject: 'Math',
-  //   desc: 'whatever',
-  //   requestState: 'Pending',
-  //   apptId: 1,
-  //   tutorId: 3
-  // });
+    // db.User.create({
+    //     email: 'mattsainson@gmail.com',
+    //     password: 'password',
+    //     name: 'Matt',
+    //     balance: 1500,
+    //     isActive: true
+    // });
 
-  // db.Request.create({
-  //   requesterId: 1,
-  //   requestDateTime: '2019-01-02',
-  //   durationMin: 30,
-  //   subject: 'English',
-  //   desc: 'please respond, I have a big test coming up',
-  //   requestState: 'Pending',
-  //   apptId: 2,
-  //   tutorId: 3
-  // });
+    // db.User.create({
+    //     email: 'kyle@gmail.com',
+    //     password: 'password',
+    //     name: 'Kyle',
+    //     balance: 2433,
+    //     isActive: true
+    // });
 
-  // db.Appointment.create({
-  //   schedDateTime: '2019-01-01',
-  //   durationSchedMin: 25,
-  //   durationActualMin: 0,
-  //   url: 'www.vts.com',
-  //   subject: 'Math',
-  //   desc: 'math appt',
-  //   requestId: 1,
-  //   maxAttendees: 2,
-  //   apptState: 'Scheduled'
-  // });
+    // db.Game.create({
+    //     sport: 'Basketball',
+    //     league: 'NBA',
+    //     gameAt: '2019-05-11T12:18:34.100Z',
+    //     location: 'Sacramento, CA',
+    //     state: 'Scheduled'
+    // });
+    // db.Team.create({
+    //     gameId: 1,
+    //     name: 'Kings',
+    //     spread: 5,
+    //     spreadPayout: 110,
+    //     moneylinePayout: 180,
+    //     score: 0
+    // });
+    // db.Team.create({
+    //     gameId: 1,
+    //     name: 'Warriors',
+    //     spread: -5,
+    //     spreadPayout: -110,
+    //     moneylinePayout: -180,
+    //     score: 0
+    // });
 
-  // db.Appointment.create({
-  //   schedDateTime: '2019-01-02',
-  //   durationSchedMin: 30,
-  //   durationActualMin: 0,
-  //   url: 'www.vts.com',
-  //   subject: 'English',
-  //   desc: 'English',
-  //   requestId: 2,
-  //   maxAttendees: 2,
-  //   apptState: 'Scheduled'
-  // });
+    // db.Game.create({
+    //     sport: 'Basketball',
+    //     league: 'NBA',
+    //     gameAt: '2019-05-10T12:18:34.100Z',
+    //     location: 'Los Angeles, CA',
+    //     state: 'Started'
+    // });
+    // db.Team.create({
+    //     gameId: 2,
+    //     name: 'Celtics',
+    //     spread: 12,
+    //     spreadPayout: 120,
+    //     moneylinePayout: 160,
+    //     score: 56
+    // });
+    // db.Team.create({
+    //     gameId: 2,
+    //     name: 'Lakers',
+    //     spread: -12,
+    //     spreadPayout: -120,
+    //     moneylinePayout: -155,
+    //     score: 32
+    // });
 
-  // db.Attendee.create({
-  //   apptId: 1,
-  //   attendeeId: 1,
-  //   isTutor: false,
-  //   isHere: false,
-  // });
+    // db.Game.create({
+    //     sport: 'Basketball',
+    //     league: 'NBA',
+    //     gameAt: '2019-05-09T12:18:34.100Z',
+    //     location: 'Chicago, IL',
+    //     state: 'Ended'
+    // });
+    // db.Team.create({
+    //     gameId: 3,
+    //     name: 'Bulls',
+    //     spread: -6,
+    //     spreadPayout: -130,
+    //     moneylinePayout: -160,
+    //     score: 102
+    // });
+    // db.Team.create({
+    //     gameId: 3,
+    //     name: 'Sixers',
+    //     spread: 6,
+    //     spreadPayout: 130,
+    //     moneylinePayout: 145,
+    //     score: 87
+    // });
 
-  // db.Attendee.create({
-  //   apptId: 1,
-  //   attendeeId: 3,
-  //   isTutor: true,
-  //   isHere: true
-  // });
+    // db.BetTransaction.create({
+    //     userId: 1,
+    //     betId: 1,
+    //     transactionAt: '2019-05-11T12:18:34.100Z',
+    //     transactionAmount: 100
+    // });
 
-  // db.Attendee.create({
-  //   apptId: 2,
-  //   attendeeId: 1,
-  //   isTutor: false,
-  //   isHere: false
-  // });
+    // db.BetTransaction.create({
+    //     userId: 1,
+    //     betId: 2,
+    //     transactionAt: '2019-05-12T12:18:34.100Z',
+    //     transactionAmount: 100
+    // });
 
-  // db.Attendee.create({
-  //   apptId: 2,
-  //   attendeeId: 3,
-  //   isTutor: true,
-  //   isHere: false
-  // });
+    // db.BetTransaction.create({
+    //     userId: 1,
+    //     betId: 3,
+    //     transactionAt: '2019-05-13T12:18:34.100Z',
+    //     transactionAmount: 100
+    // });
 
-  // db.Rating.create({
-  //   raterId: 1,
-  //   ratedId: 3,
-  //   rating: 5,
-  //   apptId: 1,
-  // });
 
-  // db.Rating.create({
-  //   raterId: 1,
-  //   ratedId: 3,
-  //   rating: 3,
-  //   apptId: 2
-  // });
 
 });
 
