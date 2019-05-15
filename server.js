@@ -102,7 +102,6 @@ db.sequelize.sync(syncOptions).then(function () {
     //     sport: 'Basketball',
     //     league: 'NBA',
     //     gameAt: '2019-05-11T12:18:34.100Z',
-    //     location: 'Sacramento, CA',
     //     state: 'Scheduled'
     // });
     // db.Team.create({
@@ -126,7 +125,6 @@ db.sequelize.sync(syncOptions).then(function () {
     //     sport: 'Basketball',
     //     league: 'NBA',
     //     gameAt: '2019-05-10T12:18:34.100Z',
-    //     location: 'Los Angeles, CA',
     //     state: 'Started'
     // });
     // db.Team.create({
@@ -135,7 +133,8 @@ db.sequelize.sync(syncOptions).then(function () {
     //     spread: 12,
     //     spreadPayout: 120,
     //     moneylinePayout: 160,
-    //     score: 56
+    //     score: 56,
+    //     home: false
     // });
     // db.Team.create({
     //     gameId: 2,
@@ -143,14 +142,14 @@ db.sequelize.sync(syncOptions).then(function () {
     //     spread: -12,
     //     spreadPayout: -120,
     //     moneylinePayout: -155,
-    //     score: 32
+    //     score: 32,
+    //     home: true
     // });
 
     // db.Game.create({
     //     sport: 'Basketball',
     //     league: 'NBA',
     //     gameAt: '2019-05-09T12:18:34.100Z',
-    //     location: 'Chicago, IL',
     //     state: 'Ended'
     // });
     // db.Team.create({
@@ -159,7 +158,8 @@ db.sequelize.sync(syncOptions).then(function () {
     //     spread: -6,
     //     spreadPayout: -130,
     //     moneylinePayout: -160,
-    //     score: 102
+    //     score: 102,
+        //     home: true
     // });
     // db.Team.create({
     //     gameId: 3,
@@ -167,7 +167,8 @@ db.sequelize.sync(syncOptions).then(function () {
     //     spread: 6,
     //     spreadPayout: 130,
     //     moneylinePayout: 145,
-    //     score: 87
+    //     score: 87,
+        //     home: false
     // });
 
     // db.BetTransaction.create({
