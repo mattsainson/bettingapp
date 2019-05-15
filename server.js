@@ -3,6 +3,8 @@
 // =============================================================
 const express = require("express");
 const routes = require('./routes');
+var cors = require("cors")
+var bodyParser = require("body-parser")
 
 // Sets up the Express App
 // =============================================================
@@ -15,6 +17,14 @@ var db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(bodyParser.json())
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }))
+
+
+var Users = require('./routes/Users')
+
+app.use('/users', Users)
 
 // Static directory
 if (process.env.NODE_ENV === 'production') {
