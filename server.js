@@ -1,4 +1,4 @@
-// require("dotenv").config();
+require("dotenv").config();
 // *** Dependencies
 // =============================================================
 const express = require("express");
@@ -19,9 +19,9 @@ app.use(express.json());
 // Static directory
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
-} 
+}
 // else {
-//     app.use(express.static("public"));
+// app.use(express.static("client/public"));
 // }
 
 // Routes
@@ -57,7 +57,142 @@ db.sequelize.sync(syncOptions).then(function () {
             PORT
         );
     });
-    //put seed code here
+
+    //     db.Bet.create({
+    //     userId: 1,
+    //     gameId: 1,
+    //     teamId: 1,
+    //     betType: 'Spread',
+    //     wager: 200
+    // });
+
+    // db.Bet.create({
+    //     userId: 1,
+    //     gameId: 2,
+    //     teamId: 2,
+    //     betType: 'Spread',
+    //     wager: 100
+    // });
+
+    // db.Bet.create({
+    //     userId: 1,
+    //     gameId: 3,
+    //     teamId: 1,
+    //     betType: 'Moneyline',
+    //     wager: 300
+    // });
+
+    // db.User.create({
+    //     email: 'mattsainson@gmail.com',
+    //     password: 'password',
+    //     name: 'Matt',
+    //     balance: 1500,
+    //     isActive: true
+    // });
+
+    // db.User.create({
+    //     email: 'kyle@gmail.com',
+    //     password: 'password',
+    //     name: 'Kyle',
+    //     balance: 2433,
+    //     isActive: true
+    // });
+
+    // db.Game.create({
+    //     sport: 'Basketball',
+    //     league: 'NBA',
+    //     gameAt: '2019-05-11T12:18:34.100Z',
+    //     location: 'Sacramento, CA',
+    //     state: 'Scheduled'
+    // });
+    // db.Team.create({
+    //     gameId: 1,
+    //     name: 'Kings',
+    //     spread: 5,
+    //     spreadPayout: 110,
+    //     moneylinePayout: 180,
+    //     score: 0
+    // });
+    // db.Team.create({
+    //     gameId: 1,
+    //     name: 'Warriors',
+    //     spread: -5,
+    //     spreadPayout: -110,
+    //     moneylinePayout: -180,
+    //     score: 0
+    // });
+
+    // db.Game.create({
+    //     sport: 'Basketball',
+    //     league: 'NBA',
+    //     gameAt: '2019-05-10T12:18:34.100Z',
+    //     location: 'Los Angeles, CA',
+    //     state: 'Started'
+    // });
+    // db.Team.create({
+    //     gameId: 2,
+    //     name: 'Celtics',
+    //     spread: 12,
+    //     spreadPayout: 120,
+    //     moneylinePayout: 160,
+    //     score: 56
+    // });
+    // db.Team.create({
+    //     gameId: 2,
+    //     name: 'Lakers',
+    //     spread: -12,
+    //     spreadPayout: -120,
+    //     moneylinePayout: -155,
+    //     score: 32
+    // });
+
+    // db.Game.create({
+    //     sport: 'Basketball',
+    //     league: 'NBA',
+    //     gameAt: '2019-05-09T12:18:34.100Z',
+    //     location: 'Chicago, IL',
+    //     state: 'Ended'
+    // });
+    // db.Team.create({
+    //     gameId: 3,
+    //     name: 'Bulls',
+    //     spread: -6,
+    //     spreadPayout: -130,
+    //     moneylinePayout: -160,
+    //     score: 102
+    // });
+    // db.Team.create({
+    //     gameId: 3,
+    //     name: 'Sixers',
+    //     spread: 6,
+    //     spreadPayout: 130,
+    //     moneylinePayout: 145,
+    //     score: 87
+    // });
+
+    // db.BetTransaction.create({
+    //     userId: 1,
+    //     betId: 1,
+    //     transactionAt: '2019-05-11T12:18:34.100Z',
+    //     transactionAmount: 100
+    // });
+
+    // db.BetTransaction.create({
+    //     userId: 1,
+    //     betId: 2,
+    //     transactionAt: '2019-05-12T12:18:34.100Z',
+    //     transactionAmount: 100
+    // });
+
+    // db.BetTransaction.create({
+    //     userId: 1,
+    //     betId: 3,
+    //     transactionAt: '2019-05-13T12:18:34.100Z',
+    //     transactionAmount: 100
+    // });
+
+
+
 });
 
 module.exports = app;
