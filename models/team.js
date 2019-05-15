@@ -10,6 +10,11 @@ module.exports = function (sequelize, DataTypes) {
             notEmpty: true,
             allowNull: false
         },
+        home: {
+            type: DataTypes.BOOLEAN,
+            notEmpty: true,
+            allowNull: false
+        },
         spread: {
             type: DataTypes.DECIMAL,
             notEmpty: true,
