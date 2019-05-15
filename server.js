@@ -112,12 +112,12 @@ db.sequelize.sync(syncOptions).then(function () {
     //     sport: 'Basketball',
     //     league: 'NBA',
     //     gameAt: '2019-05-11T12:18:34.100Z',
-    //     location: 'Sacramento, CA',
     //     state: 'Scheduled'
     // });
     // db.Team.create({
     //     gameId: 1,
     //     name: 'Kings',
+    //     home: true,
     //     spread: 5,
     //     spreadPayout: 110,
     //     moneylinePayout: 180,
@@ -126,6 +126,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 1,
     //     name: 'Warriors',
+    //     home: false,
     //     spread: -5,
     //     spreadPayout: -110,
     //     moneylinePayout: -180,
@@ -136,12 +137,12 @@ db.sequelize.sync(syncOptions).then(function () {
     //     sport: 'Basketball',
     //     league: 'NBA',
     //     gameAt: '2019-05-10T12:18:34.100Z',
-    //     location: 'Los Angeles, CA',
     //     state: 'Started'
     // });
     // db.Team.create({
     //     gameId: 2,
     //     name: 'Celtics',
+    //     home: false,
     //     spread: 12,
     //     spreadPayout: 120,
     //     moneylinePayout: 160,
@@ -150,6 +151,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 2,
     //     name: 'Lakers',
+    //     home: true,
     //     spread: -12,
     //     spreadPayout: -120,
     //     moneylinePayout: -155,
@@ -160,12 +162,12 @@ db.sequelize.sync(syncOptions).then(function () {
     //     sport: 'Basketball',
     //     league: 'NBA',
     //     gameAt: '2019-05-09T12:18:34.100Z',
-    //     location: 'Chicago, IL',
     //     state: 'Ended'
     // });
     // db.Team.create({
     //     gameId: 3,
     //     name: 'Bulls',
+    //     home: true,
     //     spread: -6,
     //     spreadPayout: -130,
     //     moneylinePayout: -160,
@@ -174,6 +176,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 3,
     //     name: 'Sixers',
+    //     home: false,
     //     spread: 6,
     //     spreadPayout: 130,
     //     moneylinePayout: 145,
