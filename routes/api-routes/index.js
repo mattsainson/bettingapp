@@ -1,13 +1,15 @@
 const router = require('express').Router();
-const betsRoutes = require('./bets.js');
-const betTransactionsRoutes = require('./betTransactions.js');
-const gamesRoutes = require('./games.js');
-const usersRoutes = require('./users.js');
+const betsRoutes = require('./bets');
+const betTransactionsRoutes = require('./betTransactions');
+const gamesRoutes = require('./games');
+const usersRoutes = require('./users');
+const teamsRoutes = require('./teams');
 
 // All routes
-router.use('/posts', betsRoutes);
-router.use('/posts', betTransactionsRoutes);
-router.use('/posts', gamesRoutes);
-router.use('/posts', usersRoutes);
+router.use('/bets', betsRoutes);
+router.use('/money', betTransactionsRoutes);
+router.use('/games', gamesRoutes);
+router.use('/users', usersRoutes);
+router.use('/teams', teamsRoutes);
 
 module.exports = router;
