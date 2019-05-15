@@ -3,6 +3,8 @@ require("dotenv").config();
 // =============================================================
 const express = require("express");
 const routes = require('./routes');
+var cors = require("cors")
+var bodyParser = require("body-parser")
 
 // Sets up the Express App
 // =============================================================
@@ -15,6 +17,14 @@ var db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(bodyParser.json())
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }))
+
+
+var Users = require('./routes/Users')
+
+app.use('/users', Users)
 
 // Static directory
 if (process.env.NODE_ENV === 'production') {
@@ -107,6 +117,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 1,
     //     name: 'Kings',
+    //     home: true,
     //     spread: 5,
     //     spreadPayout: 110,
     //     moneylinePayout: 180,
@@ -115,6 +126,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 1,
     //     name: 'Warriors',
+    //     home: false,
     //     spread: -5,
     //     spreadPayout: -110,
     //     moneylinePayout: -180,
@@ -130,6 +142,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 2,
     //     name: 'Celtics',
+    //     home: false,
     //     spread: 12,
     //     spreadPayout: 120,
     //     moneylinePayout: 160,
@@ -139,6 +152,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 2,
     //     name: 'Lakers',
+    //     home: true,
     //     spread: -12,
     //     spreadPayout: -120,
     //     moneylinePayout: -155,
@@ -155,6 +169,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 3,
     //     name: 'Bulls',
+    //     home: true,
     //     spread: -6,
     //     spreadPayout: -130,
     //     moneylinePayout: -160,
@@ -164,6 +179,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 3,
     //     name: 'Sixers',
+    //     home: false,
     //     spread: 6,
     //     spreadPayout: 130,
     //     moneylinePayout: 145,
