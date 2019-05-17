@@ -44,6 +44,8 @@ router.get("/simulator", function (req, res) {
         transactionAt: '2019-05-13T12:18:34.100Z',
         transactionAmount: 100
     });
+
+    runBets();
 };
 
 // function createUsers(){
