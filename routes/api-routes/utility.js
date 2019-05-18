@@ -84,4 +84,7 @@ function createEntry(db, gameAt, teams, spread, spreadPayout, ml) {
     })
 }
 
+
+rungames()
+
 module.exports = router;
