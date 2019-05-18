@@ -1,52 +1,72 @@
-router.get("/simulator", function (req, res) {    
-    function runBets(){
-    db.Bet.create({
-        userId: 1,
-        gameId: 1,
-        teamId: 1,
-        betType: 'Spread',
-        wager: 200
+const router = require("express").Router();
+var db = require("../../models");
+require('dotenv').config();
+
+// /api/utility/rungames
+router.get("/runGames", function (req, res) {
+    function runGames() {
+
+        db.Teams.update({ score: 2 }, { where: { id: 1 } })
+
+            .then(dbModel => res.json(dbModel),
+            console.log("We good!"))
+            .catch(err => res.status(422).json(err));
+    }
+    runGames();
+
     });
 
-    db.Bet.create({
-        userId: 1,
-        gameId: 2,
-        teamId: 2,
-        betType: 'Spread',
-        wager: 100
-    });
+// function createBets() {
+//     db.Bet.create({
+//         userId: 1,
+//         gameId: 1,
+//         teamId: 1,
+//         betType: 'Spread',
+//         wager: 200
+//     });
 
-    db.Bet.create({
-        userId: 1,
-        gameId: 3,
-        teamId: 1,
-        betType: 'Moneyline',
-        wager: 300
-    });
+//     db.Bet.create({
+//         userId: 1,
+//         gameId: 2,
+//         teamId: 2,
+//         betType: 'Spread',
+//         wager: 100
+//     });
 
-    db.BetTransaction.create({
-        userId: 1,
-        betId: 1,
-        transactionAt: '2019-05-11T12:18:34.100Z',
-        transactionAmount: 100
-    });
+//     db.Bet.create({
+//         userId: 1,
+//         gameId: 3,
+//         teamId: 1,
+//         betType: 'Moneyline',
+//         wager: 300
+//     });
+// }
 
-    db.BetTransaction.create({
-        userId: 1,
-        betId: 2,
-        transactionAt: '2019-05-12T12:18:34.100Z',
-        transactionAmount: 100
-    });
+// function runBets() {
 
-    db.BetTransaction.create({
-        userId: 1,
-        betId: 3,
-        transactionAt: '2019-05-13T12:18:34.100Z',
-        transactionAmount: 100
-    });
+//     db.BetTransaction.create({
+//         userId: 1,
+//         betId: 1,
+//         transactionAt: '2019-05-11T12:18:34.100Z',
+//         transactionAmount: 100
+//     });
 
-    runBets();
-};
+//     db.BetTransaction.create({
+//         userId: 1,
+//         betId: 2,
+//         transactionAt: '2019-05-12T12:18:34.100Z',
+//         transactionAmount: 100
+//     });
+
+//     db.BetTransaction.create({
+//         userId: 1,
+//         betId: 3,
+//         transactionAt: '2019-05-13T12:18:34.100Z',
+//         transactionAmount: 100
+//     });
+
+
+ 
 
 // function createUsers(){
 //     db.User.create({
@@ -150,4 +170,4 @@ router.get("/simulator", function (req, res) {
     //     score: 87
     // });
 
-    
+    module.exports = router;

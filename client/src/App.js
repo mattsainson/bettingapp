@@ -6,31 +6,16 @@ import Landing from './components/Landing'
 import Login from './components/Login'
 import Register from './components/Register'
 import Profile from './components/Profile'
-
-class App extends Component {
-  render () {
-    return (
-      <Router>
-        <div className="App">
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <div className="container">
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/profile" component={Profile} />
-          </div>
-        </div>
-      </Router>
 import './App.css';
 import Nav from './components/Nav/Nav.js'
 import Header from './components/Header/Header.js'
 import Main from './components/Main/Main.js';
-import Game from './components/Card/Card.js';
+import Game from './components/Game/Game.js';
 import Footer from './components/Footer/Footer.js';
 import Games from './components/games.json'
 
 class App extends Component {
-
+  
   state = {
     user: 'Matt',
     games: Games
@@ -66,11 +51,17 @@ class App extends Component {
       // this.endGame();
     }
   }
-
-  render() {
+  render () {
     return (
-      <div className="App">
-        <Nav user={this.state.user} />
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Route exact path="/" component={Landing} />
+          <div className="container">
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/profile" component={Profile} />
+            <Nav user={this.state.user} />
         <Header />
         <Main>
           {this.state.games.map(i => (
@@ -78,7 +69,6 @@ class App extends Component {
               key={i.id}
               team1={i.team1}
               team2={i.team2}
-              location={i.location}
               playAt={i.playAt}
               sport={i.sport}
               league={i.league}
@@ -87,9 +77,12 @@ class App extends Component {
           ))}
         </Main>
         <Footer />
-      </div>
-    );
-  }
-}
+          </div>
+        </div>
+      </Router>
+
+
+    )}
+};
 
 export default App;
