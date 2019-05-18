@@ -6,7 +6,8 @@ class Profile extends Component {
         super()
         this.state = {
             name: '',
-            email: ''
+            email: '',
+            balance: ''
         }
     }
 
@@ -15,7 +16,8 @@ class Profile extends Component {
         const decoded = jwt_decode(token)
         this.setState({
             name: decoded.name,
-            email: decoded.email
+            email: decoded.email,
+            balance: decoded.balance
         })
     }
 
@@ -35,6 +37,10 @@ class Profile extends Component {
                             <tr>
                                 <td>Email</td>
                                 <td>{this.state.email}</td>
+                            </tr>
+                            <tr>
+                                <td>Balance</td>
+                                <td>{this.state.balance}</td>
                             </tr>
                         </tbody>
                     </table>
