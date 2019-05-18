@@ -7,7 +7,6 @@ const teamsRoutes = require('./teams');
 const grabDataFillDB = require('./grabDataFillDB');
 const runGames = require('./runGames');
 
-
 // All routes
 router.use('/bets', betsRoutes);
 router.use('/money', betTransactionsRoutes);
