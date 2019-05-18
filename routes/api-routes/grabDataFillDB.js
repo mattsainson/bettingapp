@@ -1,13 +1,12 @@
 const router = require("express").Router();
 // const gamesController = require("../../controllers/gamesController");
 // const teamsController = require("../../controllers/teamsController");
-const utilityController = require("../../controllers/utilityController");
 var db = require("../../models");
 var unirest = require('unirest');
 require('dotenv').config();
 // const simulator = require();
 
-// /api/utility/simulator
+// /api/grabDataFillDB/simulator
 router.get("/simulator", function (req, res) {
     unirest.get("https://therundown-therundown-v1.p.rapidapi.com/sports/3/events?include=all_periods%2C+scores%2C+and%2For+teams")
         .header("X-RapidAPI-Host", "therundown-therundown-v1.p.rapidapi.com")
