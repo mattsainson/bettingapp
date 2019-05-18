@@ -67,7 +67,6 @@ class App extends Component {
               key={i.id}
               team1={i.team1}
               team2={i.team2}
-              location={i.location}
               playAt={i.playAt}
               sport={i.sport}
               league={i.league}

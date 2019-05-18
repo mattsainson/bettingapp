@@ -6,7 +6,6 @@ const usersRoutes = require('./users');
 const teamsRoutes = require('./teams');
 const utilityRoutes = require('./utility');
 
-
 // All routes
 router.use('/bets', betsRoutes);
 router.use('/money', betTransactionsRoutes);

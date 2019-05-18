@@ -21,11 +21,6 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-
-// var Users = require('./routes/Users')
-
-// app.use('/users', Users)
-
 // Static directory
 if (process.env.NODE_ENV === 'production') {
     console.log("here")
@@ -147,7 +142,8 @@ db.sequelize.sync(syncOptions).then(function () {
     //     spread: 12,
     //     spreadPayout: 120,
     //     moneylinePayout: 160,
-    //     score: 56
+    //     score: 56,
+    //     home: false
     // });
     // db.Team.create({
     //     gameId: 2,
@@ -156,7 +152,8 @@ db.sequelize.sync(syncOptions).then(function () {
     //     spread: -12,
     //     spreadPayout: -120,
     //     moneylinePayout: -155,
-    //     score: 32
+    //     score: 32,
+    //     home: true
     // });
 
     // db.Game.create({
@@ -172,7 +169,8 @@ db.sequelize.sync(syncOptions).then(function () {
     //     spread: -6,
     //     spreadPayout: -130,
     //     moneylinePayout: -160,
-    //     score: 102
+    //     score: 102,
+        //     home: true
     // });
     // db.Team.create({
     //     gameId: 3,
@@ -181,7 +179,8 @@ db.sequelize.sync(syncOptions).then(function () {
     //     spread: 6,
     //     spreadPayout: 130,
     //     moneylinePayout: 145,
-    //     score: 87
+    //     score: 87,
+        //     home: false
     // });
 
     // db.BetTransaction.create({
