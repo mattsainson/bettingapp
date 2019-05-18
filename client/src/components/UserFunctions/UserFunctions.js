@@ -5,7 +5,8 @@ export const register = newUser => {
         .post('api/users/register', {
             name: newUser.name,
             email: newUser.email,
-            password: newUser.password
+            password: newUser.password,
+            balance: newUser.balance
         })
         .then(res => {
             console.log("Registered")
