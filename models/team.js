@@ -34,11 +34,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             notEmpty: true,
             allowNull: false
-        },
-        home: {
-            type: DataTypes.BOOLEAN,
-            notEmpty: true,
-            allowNull: false
         }
     });
     return Team;
