@@ -7,7 +7,8 @@ class Register extends Component {
         this.state = {
             name: '',
             email: '',
-            password: ''
+            password: '',
+            balance: ''
         }
 
         this.onChange = this.onChange.bind(this)
@@ -24,7 +25,8 @@ class Register extends Component {
         const user = {
             name: this.state.name,
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            balance: this.state.balance
         }
 
         register(user).then(res => {
@@ -69,6 +71,17 @@ class Register extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
+                            <div className="form-group">
+                                <label htmlFor="balance">Balance:</label>
+                                <input type="number"
+                                    className="form-control"
+                                    name="balance"
+                                    placeholder="Enter Your Balance"
+                                    value={this.state.balance}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            
                             <button type="submit"
                                 className="btn btn-lg btn-primary btn-block">
                                 Register
