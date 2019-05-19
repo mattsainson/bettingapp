@@ -3,8 +3,8 @@ require("dotenv").config();
 // =============================================================
 const express = require("express");
 const routes = require('./routes');
-var cors = require("cors")
-var bodyParser = require("body-parser")
+var cors = require("cors");
+var bodyParser = require("body-parser");
 
 // Sets up the Express App
 // =============================================================
