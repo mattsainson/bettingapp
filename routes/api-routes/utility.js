@@ -6,7 +6,6 @@ var db = require("../../models");
 var unirest = require('unirest');
 const fs = require("fs");
 require('dotenv').config();
-const fs = require("fs");
 const path = require("path");
 
 // /api/utility/getrundown: gets the data from the rundown API and load it into a json file
