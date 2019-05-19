@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
 var db = require("../../models");
 var unirest = require('unirest');
+const fs = require("fs");
 require('dotenv').config();
 
 router.get("/test", function (req, res) {
@@ -85,6 +86,6 @@ function createEntry(db, gameAt, teams, spread, spreadPayout, ml) {
 }
 
 
-rungames()
+// rungames()
 
 module.exports = router;
