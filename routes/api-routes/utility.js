@@ -6,11 +6,7 @@ var db = require("../../models");
 var unirest = require('unirest');
 const fs = require("fs");
 require('dotenv').config();
-
-router.get("/test", function (req, res) {
-    console.log('test')
-    res.status(200).end();
-});
+const path = require("path");
 
 // /api/utility/getrundown: gets the data from the rundown API and load it into a json file
 // this is called once; after that we use initdb to keep getting it from the data/results.json 
