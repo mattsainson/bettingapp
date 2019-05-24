@@ -3,8 +3,8 @@ require("dotenv").config();
 // =============================================================
 const express = require("express");
 const routes = require('./routes');
-var cors = require("cors")
-var bodyParser = require("body-parser")
+var cors = require("cors");
+var bodyParser = require("body-parser");
 
 // Sets up the Express App
 // =============================================================
@@ -20,11 +20,6 @@ app.use(express.json());
 app.use(bodyParser.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
-
-
-// var Users = require('./routes/Users')
-
-// app.use('/users', Users)
 
 // Static directory
 if (process.env.NODE_ENV === 'production') {
@@ -113,12 +108,12 @@ db.sequelize.sync(syncOptions).then(function () {
     //     sport: 'Basketball',
     //     league: 'NBA',
     //     gameAt: '2019-05-11T12:18:34.100Z',
-    //     location: 'Sacramento, CA',
     //     state: 'Scheduled'
     // });
     // db.Team.create({
     //     gameId: 1,
     //     name: 'Kings',
+    //     home: true,
     //     spread: 5,
     //     spreadPayout: 110,
     //     moneylinePayout: 180,
@@ -127,6 +122,7 @@ db.sequelize.sync(syncOptions).then(function () {
     // db.Team.create({
     //     gameId: 1,
     //     name: 'Warriors',
+    //     home: false,
     //     spread: -5,
     //     spreadPayout: -110,
     //     moneylinePayout: -180,
@@ -137,48 +133,54 @@ db.sequelize.sync(syncOptions).then(function () {
     //     sport: 'Basketball',
     //     league: 'NBA',
     //     gameAt: '2019-05-10T12:18:34.100Z',
-    //     location: 'Los Angeles, CA',
     //     state: 'Started'
     // });
     // db.Team.create({
     //     gameId: 2,
     //     name: 'Celtics',
+    //     home: false,
     //     spread: 12,
     //     spreadPayout: 120,
     //     moneylinePayout: 160,
-    //     score: 56
+    //     score: 56,
+    //     home: false
     // });
     // db.Team.create({
     //     gameId: 2,
     //     name: 'Lakers',
+    //     home: true,
     //     spread: -12,
     //     spreadPayout: -120,
     //     moneylinePayout: -155,
-    //     score: 32
+    //     score: 32,
+    //     home: true
     // });
 
     // db.Game.create({
     //     sport: 'Basketball',
     //     league: 'NBA',
     //     gameAt: '2019-05-09T12:18:34.100Z',
-    //     location: 'Chicago, IL',
     //     state: 'Ended'
     // });
     // db.Team.create({
     //     gameId: 3,
     //     name: 'Bulls',
+    //     home: true,
     //     spread: -6,
     //     spreadPayout: -130,
     //     moneylinePayout: -160,
-    //     score: 102
+    //     score: 102,
+        //     home: true
     // });
     // db.Team.create({
     //     gameId: 3,
     //     name: 'Sixers',
+    //     home: false,
     //     spread: 6,
     //     spreadPayout: 130,
     //     moneylinePayout: 145,
-    //     score: 87
+    //     score: 87,
+        //     home: false
     // });
 
     // db.BetTransaction.create({
