@@ -7,7 +7,7 @@ import Register from './pages/Register/Register'
 import Profile from './pages/Profile/Profile'
 import './App.css';
 import Dashboard from './pages/Dashboard/dashboard';
-import Bet from './pages/Bet/Bet';
+import Bet from './pages/Betting/Betting';
 import Footer from './components/Footer/Footer.js';
 
 class App extends React.Component {
