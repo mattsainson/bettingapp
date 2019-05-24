@@ -5,7 +5,7 @@ class Navbar extends Component {
     logOut(e) {
         e.preventDefault()
         localStorage.removeItem('usertoken')
-        this.props.history.push(`/`)
+        this.props.history.push(`/login`)
     }
 
     render() {
@@ -27,7 +27,7 @@ class Navbar extends Component {
             <ul className="navbar-nav">
                 <li className="nav-item">
                     <Link to="/profile" className="nav-link">
-                        User
+                        Profile
                     </Link>
                 </li>
                 <li className="nav-item">
@@ -53,8 +53,11 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse justify-content-md-center"
                     id="navbar1">
                     <ul className="navbar-nav">
+                    <li className="nav-item">
+                    BetMo!
+                    </li>
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">
+                            <Link to="/dashboard" className="nav-link">
                                 Home
                             </Link>
                         </li>
