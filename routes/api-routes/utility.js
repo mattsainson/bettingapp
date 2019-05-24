@@ -121,11 +121,17 @@ function mlresult() {
             for (var i = 0; i < games.length; i++) {
                 db.Team.findAll({ where: { gameId: games[i].id } })
                     .then(function (teams) {
-                        
                         console.log("Team Data", teams);
                         for(var k = 0; k < teams.length; k++){
-                        score.push(teams[k].score);
-                        larger.push(Math.max(...score));
+                        if(teams[0].score > teams[1].score){
+                            console.log("Away wins!", teams.gameId);
+                            var winnings = Math.eval(100 * teams.moneylinePayout);
+                            console.log(winnings + "" + teams.gameId);
+                        }else {
+                            console.log("Home wins!");
+                            var winnings = Math.eval(100 * teams.moneylinePayout);
+                            console.log(winnings + "" + teams.gameId);
+                        } 
                     }
                     console.log("Scores", score);
                     console.log("Larger", score);
