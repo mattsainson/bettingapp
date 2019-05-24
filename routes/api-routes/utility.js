@@ -15,7 +15,7 @@ router.get("/getrundown", function (req, res) {
         .header("X-RapidAPI-Host", "therundown-therundown-v1.p.rapidapi.com")
         .header("X-RapidAPI-Key", process.env.RAPIDAPI_KEY)
         .then((result) => {
-            fs.writeFile("../../data/rundown.json", JSON.stringify(result.body), function (err) {
+            fs.writeFile("rundown.json", JSON.stringify(result.body), function (err) {
                 if (err) {
                     return console.log(err);
                 }
@@ -28,12 +28,12 @@ router.get("/getrundown", function (req, res) {
 // assumes you have dropped the games and teams tables in the db
 router.get("/initdb", function (req, res) {
     console.log('initdb');
-    fs.readFile("../../data/rundown.json", function (err, data) {
-        if (err) {
+    fs.readFile(path.join(__dirname, "../../data/rundown.json"), "utf8", function (error, data) {
+        if (error) {
             res.status(400).end();
         }
+        console.log('rundown.json', data);
         var myData = JSON.parse(data);
-        console.log("myData", myData);
         var spread = [];
         var spreadPayout = [];
         var ml = [];
