@@ -15,11 +15,6 @@ module.exports = function (sequelize, DataTypes) {
             notEmpty: true,
             allowNull: false
         },
-        // location: {
-        //     type: DataTypes.STRING,
-        //     notEmpty: true,
-        //     allowNull: false
-        // },
         state: {
             type: DataTypes.STRING,
             notEmpty: true,
