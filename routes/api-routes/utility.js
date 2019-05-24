@@ -96,7 +96,7 @@ router.get("/rungames", function (req, res) {
     db.Team.update({ score: 1 }, { where: { id: 14 } })
     res.status(200).end();
 })
-mlresult();
+result();
 // .then(function (result) {
 //     console.log(result);
 //     (function () {
@@ -112,36 +112,41 @@ mlresult();
 //     })
 // });
 
-function mlresult() {
-    score = [];
-    larger =[];
-    db.Game.findAll({ where: { state: "ended" } })
+function result() {
+       db.Game.findAll({ where: { state: "ended" } })
         .then(function (games) {
             console.log("Game Data", games);
             for (var i = 0; i < games.length; i++) {
                 db.Team.findAll({ where: { gameId: games[i].id } })
                     .then(function (teams) {
                         console.log("Team Data", teams);
-                        for(var k = 0; k < teams.length; k++){
-                        if(teams[0].score > teams[1].score){
-                            console.log("Away wins!", teams.gameId);
-                            var winnings = Math.eval(100 * teams.moneylinePayout);
-                            console.log(winnings + "" + teams.gameId);
-                        }else {
-                            console.log("Home wins!");
-                            var winnings = Math.eval(100 * teams.moneylinePayout);
-                            console.log(winnings + "" + teams.gameId);
-                        } 
-                    }
-                    console.log("Scores", score);
-                    console.log("Larger", score);
-
-                        
-            }
-        )}
-        })
-    };
-
+                        mlPayout(games, teams);
+                    }                        
+            )
+        }
+    })
+}
+    
+function mlPayout(games, teams) {
+for(var k = 0; k < teams.length; k++){
+    if(teams[0].score > teams[1].score){
+        console.log("Away wins!", teams[0].gameId);
+        if(teams[0].moneylinePayout < 0){ 
+        var winnings = ((Math.abs(teams[0].moneylinePayout)/100)+100);
+    }else{
+        var winnings = (100 + teams[0].moneylinePayout);
+    }console.log("Payout", teams[0].moneylinePayout);
+    }else {
+        console.log("Home wins!", teams[1].gameId);
+        if(teams[1].moneylinePayout < 0){ 
+            var winnings = ((Math.abs(teams[0].moneylinePayout)/100)+100);
+        }else{ 
+            var winnings = (100 + teams[0].moneylinePayout);
+        }console.log("Payout", teams[0].moneylinePayout);
+        }   
+        console.log("Winnings", winnings)
+    } 
+}
     //         db.Team.findAll({where: { gameId: endedGames[0] }})
     //         .then(function(result){
     //             console.log("Team Data", result);
