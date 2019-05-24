@@ -25,6 +25,16 @@ module.exports = function (sequelize, DataTypes) {
             notEmpty: true,
             allowNull: false
         },
+        result: {
+            type: DataTypes.STRING,
+            notEmpty: true,
+            allowNull: false,
+            defaultValue: "Pending",
+        },
+        placedAt: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
         processedAt: {
             type: DataTypes.DATE,
             allowNull: true
