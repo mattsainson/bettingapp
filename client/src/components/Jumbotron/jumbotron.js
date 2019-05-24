@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Header.css';
+import './jumbotron.css';
 
-class Header extends Component {
+class Jumbotron extends Component {
 
     render() {
         return (
@@ -15,4 +15,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default Jumbotron;
