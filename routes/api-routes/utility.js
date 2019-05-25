@@ -1,4 +1,3 @@
-
 const router = require("express").Router();
 const gamesController = require("../../controllers/gamesController");
 
@@ -13,7 +12,5 @@ router
   .get(gamesController.findById)
   .put(gamesController.update)
   .delete(gamesController.remove);
-
-
 
 module.exports = router;
