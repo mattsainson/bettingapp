@@ -94,9 +94,11 @@ router.get("/rungames", function (req, res) {
     db.Team.update({ score: 1 }, { where: { id: 10 } })
     db.Team.update({ score: 3 }, { where: { id: 13 } })
     db.Team.update({ score: 1 }, { where: { id: 14 } })
+    result();
     res.status(200).end();
 })
-result();
+
+
 // .then(function (result) {
 //     console.log(result);
 //     (function () {
@@ -113,49 +115,88 @@ result();
 // });
 
 function result() {
-       db.Game.findAll({ where: { state: "ended" } })
+    db.Game.findAll({ where: { state: "ended" } })
         .then(function (games) {
             console.log("Game Data", games);
             for (var i = 0; i < games.length; i++) {
                 db.Team.findAll({ where: { gameId: games[i].id } })
                     .then(function (teams) {
                         console.log("Team Data", teams);
-                        mlPayout(games, teams);
-                    }                        
-            )
-        }
-    })
-}
-    
-function mlPayout(games, teams) {
-for(var k = 0; k < teams.length; k++){
-    if(teams[0].score > teams[1].score){
-        console.log("Away wins!", teams[0].gameId);
-        if(teams[0].moneylinePayout < 0){ 
-        var winnings = ((Math.abs(teams[0].moneylinePayout)/100)+100);
-    }else{
-        var winnings = (100 + teams[0].moneylinePayout);
-    }console.log("Payout", teams[0].moneylinePayout);
-    }else {
-        console.log("Home wins!", teams[1].gameId);
-        if(teams[1].moneylinePayout < 0){ 
-            var winnings = ((Math.abs(teams[0].moneylinePayout)/100)+100);
-        }else{ 
-            var winnings = (100 + teams[0].moneylinePayout);
-        }console.log("Payout", teams[0].moneylinePayout);
-        }   
-        console.log("Winnings", winnings)
-    } 
-}
-    //         db.Team.findAll({where: { gameId: endedGames[0] }})
-    //         .then(function(result){
-    //             console.log("Team Data", result);
-    //         })
+                        betPayout(games);
+                    })
+            }
+        })
+};
 
-    // }
-    //         .then(function(result){
-    //             console.log(result)
-    //     })
+function betPayout(games) {
+    for (var i = 0; i < games.length; i++) {
+    db.Bet.findAll({ where: { gameId: games[i].id } })
+        .then(function (bets, teams) {
+            // console.log("Bets data:", bets)
+            for (var k = 0; k < bets.length; k++) {
+                console.log("Bets type:", bets[k].betType)
+                if (bets[k].betType === "moneyline") {
+                    mlPayout(games, teams);
+                } else {
+                    spreadPayout(games, teams);
+                }
+            }
+        })
+}
+}
+
+function mlPayout(teams) {
+    console.log("ML Payout", teams)
+    for (var k = 0; k < teams.length; k++) {
+        if (teams[0].score > teams[1].score) {
+            console.log("Away wins!", teams[0].gameId);
+            if (teams[0].moneylinePayout < 0) {
+                var winnings = ((100 / Math.abs(teams[0].moneylinePayout) * 100) + 100);
+            } else {
+                var winnings = (100 + teams[0].moneylinePayout);
+            } console.log("ML Payout", teams[0].moneylinePayout);
+        } else {
+            console.log("Home wins!", teams[1].gameId);
+            if (teams[1].moneylinePayout < 0) {
+                var winnings = ((100 / Math.abs(teams[1].moneylinePayout) * 100) + 100);
+            } else {
+                var winnings = (100 + teams[1].moneylinePayout);
+            } console.log("ML Payout", teams[1].moneylinePayout);
+        }
+        console.log("ML Winnings", winnings)
+    }
+}
+
+function spreadPayout(teams) {
+    console.log("Spread Payout", teams)
+    for (var k = 0; k < teams.length; k++) {
+        if (teams[0].score > teams[1].score) {
+            if (Math.abs(teams[0].score - teams[1].score) < teams.spread) {
+                var winnings = ((100 / (Math.abs(teams[0].spreadPayout) * 100) + 100));
+            } else {
+                console.log("Spread Loss", teams[0].spreadPayout)
+            }
+        } else {
+            // If team[0].score < team[1].score
+            if (Math.abs(teams[0].score - teams[1].score) < teams.spread) {
+                var winnings = ((100 / (Math.abs(teams[0].spreadPayout) * 100) + 100));
+            } else {
+                console.log("Spread Loss", teams[0].spreadPayout)
+            }
+
+            console.log("Spread Winnings", winnings)
+        }
+    }
+}
+//         db.Team.findAll({where: { gameId: endedGames[0] }})
+//         .then(function(result){
+//             console.log("Team Data", result);
+//         })
+
+// }
+//         .then(function(result){
+//             console.log(result)
+//     })
 
 
 
@@ -216,6 +257,7 @@ router.get("/placebets", function (req, res) {
         teamId: 2,
         betType: "moneyline",
         wager: 100,
+        result: "pending"
     }),
         db.Bet.create({
             userId: 1,
@@ -223,6 +265,7 @@ router.get("/placebets", function (req, res) {
             teamId: 4,
             betType: "spread",
             wager: 50,
+            result: "pending"
         }),
         db.Bet.create({
             userId: 1,
@@ -230,7 +273,9 @@ router.get("/placebets", function (req, res) {
             teamId: 15,
             betType: "spread",
             wager: 100,
+            result: "pending"
         })
+    res.status(200).end();
 })
 
 // router.get("/transactions", function (req, res) {
