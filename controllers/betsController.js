@@ -21,10 +21,8 @@ module.exports = {
     create: function (req, res) {
         db.Bet
             .create(req.body)
-            .then(dbModel => {
-                return dbModel
-            })
-            .catch(err => {return err;}).json(err);
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
     },
     update: function (req, res) {
         db.Bet
@@ -40,7 +38,3 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     }
 };
-
-
-// Build function to process bets
-

@@ -46,6 +46,7 @@ class Profile extends Component {
                     </table>
                 </div>
             </div>
+            <Transactions />
         )
     }
 }

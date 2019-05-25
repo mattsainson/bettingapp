@@ -13,6 +13,4 @@ router
   .put(betsController.update)
   .delete(betsController.remove);
 
-  
-
 module.exports = router;
