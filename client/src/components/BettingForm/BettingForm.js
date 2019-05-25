@@ -22,6 +22,7 @@ const BettingForm = (props) => {
                 <label for="wager">Email address</label>
                 <input type="text" className="form-control" id="wager" placeholder="100" />
             </div>
+            <button type="submit" className="btn btn-primary">Place Bet</button>
         </form>
     );
 }
