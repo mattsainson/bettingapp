@@ -8,7 +8,7 @@ import './App.css';
 import Dashboard from './pages/Dashboard/dashboard';
 import Bet from './pages/Betting/Betting';
 import Footer from './components/Footer/Footer.js';
-import NoMatch from './pages/NoMatch'
+import NoMatch from './pages/NoMatch/NoMatch'
 
 class App extends React.Component {
   
