@@ -1,0 +1,8 @@
+#navbar1 {
+display: flex
+}
+#nav1 {
+    font-family: 'Mandali', sans-serif;
+    font-size: 35px;
+    padding: 10px;
+}

@@ -1,25 +1,43 @@
 import React, { Component } from 'react';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import Games from '../../components/games.json'
-
-
-
+import Games from '../../components/Games/Games';
+import Bets from '../../components/Bets/Bets';
+import Summary from '../../components/Summary/Summary';
+import games from '../../components/games.json';
+import './Dashboard.css';
 
 class Dashboard extends Component {
-  
-    
+
+    state = {
+        games: games,
+        bets: [],
+        balance: 0,
+        outstanding: 0,
+        ytdWins: 0,
+        ytdLosses: 0,
+        lastBet: '',
+        firstBet: '',
+        biggestBet: 0,
+        avgBet: 0
+    }
+
     render(props) {
         return (
-            <div className="main">
-            <div class="row">
-            <div class="col">1 of 2</div>
-            <div class="col">2 of 2</div>
-            </div>
+            <div className="dashboard">
+                <Summary
+                balance={this.state.balance}
+                outstanding={this.state.outstanding}
+                ytdWins={this.state.ytdWins}
+                ytdLosses={this.state.ytdLosses}
+                lastBet={this.state.lastBet}
+                firstBet={this.state.firstBet}
+                biggestBet={this.state.biggestBet}
+                avgBet={this.state.avgBet}
+                />
+                <Games games={this.state.games} />
+                <Bets bets={this.state.bets}/>
             </div>
         );
     }
 }
-
-
 
 export default Dashboard;
