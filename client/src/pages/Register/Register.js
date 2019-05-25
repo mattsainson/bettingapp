@@ -40,9 +40,8 @@ class Register extends Component {
                 <div className="row">
                     <div className="col-md-6 mt-5 mx-auto">
                         <form noValidate onSubmit={this.onSubmit}>
-                            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                            <h1 className="h3 mb-3 font-weight-normal">Please Register With BetMo!</h1>
                             <div className="form-group">
-                                <label htmlFor="name">Name:</label>
                                 <input type="text"
                                     className="form-control"
                                     name="name"
@@ -52,7 +51,6 @@ class Register extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="email">Email Address</label>
                                 <input type="email"
                                     className="form-control"
                                     name="email"
@@ -62,7 +60,6 @@ class Register extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password">Password</label>
                                 <input type="password"
                                     className="form-control"
                                     name="password"
@@ -72,7 +69,6 @@ class Register extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="balance">Balance:</label>
                                 <input type="number"
                                     className="form-control"
                                     name="balance"
@@ -87,6 +83,7 @@ class Register extends Component {
                                 Register
                             </button>
                         </form>
+                        <p class="margin medium-small"><a href="/login">Already Registered? Log In Now</a></p>
                     </div>
                 </div>
             </div>

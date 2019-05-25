@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Teams from '../../components/Teams/Teams';
 import BettingForm from '../../components/BettingForm/BettingForm';
+import './Betting.css';
 
 class Betting extends Component {
 
     state = {
-        teams: [],
-        
+        teams: [], 
     }
 
     render(props) {

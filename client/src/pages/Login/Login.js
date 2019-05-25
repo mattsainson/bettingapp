@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { login } from '../../components/UserFunctions/UserFunctions'
+import './Login.css'
 
 class Login extends Component {
     constructor() {
         super()
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            error: ''
         }
 
         this.onChange = this.onChange.bind(this)
@@ -26,21 +28,22 @@ class Login extends Component {
         }
 
         login(user).then(res => {
-            if (res) {
-                this.props.history.push(`/profile`)
+            if (!res.error) {
+                this.props.history.push(`/dashboard`)
+            } else {
+                this.setState({error: res.error})
             }
         })
     }
 
     render () {
         return (
-            <div className="container">
-                <div className="row">
+            <div>
+                <div className="container">
                     <div className="col-md-6 mt-5 mx-auto">
                         <form noValidate onSubmit={this.onSubmit}>
-                            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                            <h1 className="h3 mb-3 font-weight-normal">Please Sign In</h1>
                             <div className="form-group">
-                                <label htmlFor="email">Email Address</label>
                                 <input type="email"
                                     className="form-control"
                                     name="email"
@@ -50,7 +53,6 @@ class Login extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password">Password</label>
                                 <input type="password"
                                     className="form-control"
                                     name="password"
@@ -59,11 +61,13 @@ class Login extends Component {
                                     onChange={this.onChange}
                                 />
                             </div>
-                            <button type="submit"
-                                className="btn btn-lg btn-primary btn-block">
+                            <div className="alert alert-danger"
+                                style={{ visibility: this.state.error !== '' ? 'visible' : 'hidden' }}>{this.state.error}</div>
+                            <button type="submit" className="btn btn-lg btn-primary btn-block">
                                 Sign in
                             </button>
                         </form>
+                        <p class="margin medium-small"><a href="/register">Not Yet Registered? Register Now!</a></p>
                     </div>
                 </div>
             </div>
@@ -71,4 +75,6 @@ class Login extends Component {
     }
 }
 
+
 export default Login
+

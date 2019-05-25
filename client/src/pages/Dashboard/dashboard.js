@@ -3,6 +3,7 @@ import Games from '../../components/Games/Games';
 import Bets from '../../components/Bets/Bets';
 import Summary from '../../components/Summary/Summary';
 import games from '../../components/games.json';
+import './Dashboard.css';
 
 class Dashboard extends Component {
 
