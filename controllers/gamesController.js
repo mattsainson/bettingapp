@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports = {
     findAll: function (req, res) {
         db.Game
-            .findAll({order: [['gameAt', 'DESC']]})
+            .findAll({ order: [['gameAt', 'DESC']] })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -12,9 +12,9 @@ module.exports = {
         db.Game
             .findOne({
                 where: {
-                  id: req.params.id
+                    id: req.params.id
                 }
-              })
+            })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
