@@ -34,7 +34,7 @@ module.exports = function (sequelize, DataTypes) {
         placedAt: {
             type: DataTypes.DATE,
             allowNull: false,
-            defaultValue: sequelize.fn('now')
+            defaultValue: DataTypes.NOW()
         },
         processedAt: {
             type: DataTypes.DATE,
