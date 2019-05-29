@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import jwt_decode from 'jwt-decode'
-import Transactions from '../../components/Transactions'
+import Transactions from '../../components/Transactions/Transactions'
 
 class Profile extends Component {
     constructor() {
