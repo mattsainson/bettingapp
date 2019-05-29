@@ -5,7 +5,7 @@ import Game from '../Game/Game'
 const Games = (props) => {
   return (
     <div className="container">
-      <div class="row">
+      <div class="row justify-content-md-center">
         <div class="col-sm">Sport</div>
         <div class="col-sm">League</div>
         <div class="col-sm">Game Time</div>

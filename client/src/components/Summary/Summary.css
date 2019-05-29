@@ -1,0 +1,19 @@
+.row :nth-child(odd){
+    background-color:#116466;
+    color: #ffcb9a;
+  }
+  .row :nth-child(even){
+    background-color:#52989a;
+    color: #ffcb9a;
+  }
+
+  .col-sm{
+  padding: 10px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border: 1px black solid;
+  }
+
