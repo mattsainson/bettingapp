@@ -57,8 +57,9 @@ if (process.env.NODE_ENV === "test") {
 
 db.sequelize.sync(syncOptions).then(function () {
     app.listen(PORT, function () {
+        const ts = new Date();
         console.log(
-            "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+            "==> 🌎  "+ts.toLocaleTimeString()+" Listening on port %s. Visit http://localhost:%s/ in your browser.",
             PORT,
             PORT
         );
