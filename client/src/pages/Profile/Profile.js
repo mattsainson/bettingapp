@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import jwt_decode from 'jwt-decode'
-import Transactions from '../../components/Transactions.js'
+import Transactions from '../../components/Transactions'
 
 class Profile extends Component {
     constructor() {
@@ -24,7 +24,7 @@ class Profile extends Component {
 
     render () {
         return (
-            <div>
+            <>
             <div className="container">
                 <div className="jumbotron mt-5">
                     <div className="col-sm-8 mx-auto">
@@ -49,7 +49,7 @@ class Profile extends Component {
                 </div>
             </div>
             <Transactions />
-            </div>
+            </>
         )
     }
 }
