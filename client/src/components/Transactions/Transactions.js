@@ -1,6 +1,6 @@
 import React from 'react';
 import './Transactions.css';
-import Transaction from '../../components/Transaction/Transaction'
+import Transaction from '../Transaction/Transaction'
 
 const Transactions = (props) => {
   return (

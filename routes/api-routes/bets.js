@@ -6,6 +6,11 @@ router.route("/")
   .get(betsController.findAll)
   .post(betsController.create);
 
+  // Matches with "/api/bets/user/:id"
+router
+.route("/user/:id")
+.get(betsController.findByUserId)
+
 // Matches with "/api/bets/:id"
 router
   .route("/:id")
