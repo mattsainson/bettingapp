@@ -14,7 +14,7 @@ class Navbar extends Component {
             <ul className="navbar-nav">
                 <li className="nav-item">
                     <Link to="/login" className="nav-link">
-                    <i class="fas fa-sign-in-alt fa-2x"></i>
+                    <i className="fas fa-sign-in-alt fa-2x"></i>
                     </Link>
                 </li>
                 <li className="nav-item justify-content-end">
@@ -28,12 +28,12 @@ class Navbar extends Component {
             <ul className="navbar-nav justify-content-md-end">
                 <li className="nav-item">
                     <Link to="/profile" className="nav-link">
-                    <i class="fas fa-user fa-2x"></i>
+                    <i className="fas fa-user fa-2x"></i>
                     </Link>
                 </li>
                 <li className="nav-item">
                     <a href="/logout" onClick={this.logOut.bind(this)} className="nav-link">
-                    <i class="fas fa-sign-out-alt fa-2x"></i>
+                    <i className="fas fa-sign-out-alt fa-2x"></i>
                     </a>
                 </li>
             </ul>
