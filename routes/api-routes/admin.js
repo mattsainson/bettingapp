@@ -10,7 +10,7 @@ const path = require("path");
 
 // /api/admin/getrundown: gets the data from the rundown API and load it into a json file
 // this is called once; after that we use initdb to keep getting it from the data/results.json 
-router.get("/getgames", function (req, res) {
+router.get("/getgamesfromapi", function (req, res) {
   unirest.get("https://therundown-therundown-v1.p.rapidapi.com/sports/3/events?include=all_periods%2C+scores%2C+and%2For+teams")
     .header("X-RapidAPI-Host", "therundown-therundown-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPIDAPI_KEY)

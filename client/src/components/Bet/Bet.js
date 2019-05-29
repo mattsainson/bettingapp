@@ -1,18 +1,18 @@
 import React from 'react';
 import './Bet.css';
 
-const Bets = (props) => {
+const Bet = (props) => {
     return (
-        <div class="row">
-            <div class="col-sm">{ props.userId }</div>
-            <div class="col-sm">{ props.gamesId }</div>
-            <div class="col-sm">{ props.teamsId }</div>
-            <div class="col-sm">{ props.betType }</div>
-            <div class="col-sm">{ props.wager }</div>
-            <div class="col-sm">{ props.result }</div>
-            <div class="col-sm">{ props.placedAt }</div>
+        <div className="row" id="{props.key}">
+            <div className="col-sm">{ props.userId }</div>
+            <div className="col-sm">{ props.gamesId }</div>
+            <div className="col-sm">{ props.teamsId }</div>
+            <div className="col-sm">{ props.betType }</div>
+            <div className="col-sm">{ props.wager }</div>
+            <div className="col-sm">{ props.result }</div>
+            <div className="col-sm">{ props.placedAt }</div>
         </div>
     );
 }
 
-export default Bets;
+export default Bet;

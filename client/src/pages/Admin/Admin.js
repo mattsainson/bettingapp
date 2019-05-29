@@ -13,9 +13,9 @@ class Admin extends Component {
         console.log('componentDidMount');
     }
 
-    getGames = (e) => {
+    getGamesFromAPI = (e) => {
         e.preventDefault();
-        API.getGames()
+        API.getGamesFromAPI()
         .then(res =>
             this.setState({ status: res.data })
         )
@@ -61,7 +61,7 @@ class Admin extends Component {
     render(props) {
         return (
             <div className="admin">
-                <button type="button" className="btn btn-primary btn-admin" onClick={this.getGames}>Get Games</button>
+                <button type="button" className="btn btn-primary btn-admin" onClick={this.getGamesFromAPI}>Get Games</button>
                 <button type="button" className="btn btn-primary btn-admin" onClick={this.loadGames}>Load Games</button>
                 <button type="button" className="btn btn-primary btn-admin" onClick={this.loadBets}>Load Bets</button>
                 <button type="button" className="btn btn-primary btn-admin" onClick={this.playGames}>Play Games</button>
