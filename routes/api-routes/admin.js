@@ -8,9 +8,9 @@ require('dotenv').config();
 const fs = require("fs");
 const path = require("path");
 
-// /api/utility/getrundown: gets the data from the rundown API and load it into a json file
+// /api/admin/getrundown: gets the data from the rundown API and load it into a json file
 // this is called once; after that we use initdb to keep getting it from the data/results.json 
-router.get("/getrundown", function (req, res) {
+router.get("/getgames", function (req, res) {
   unirest.get("https://therundown-therundown-v1.p.rapidapi.com/sports/3/events?include=all_periods%2C+scores%2C+and%2For+teams")
     .header("X-RapidAPI-Host", "therundown-therundown-v1.p.rapidapi.com")
     .header("X-RapidAPI-Key", process.env.RAPIDAPI_KEY)
@@ -24,9 +24,9 @@ router.get("/getrundown", function (req, res) {
     });
 });
 
-// /api/utility/initdb: resets the games and teams data to the initial state
+// /api/admin/initdb: resets the games and teams data to the initial state
 // assumes you have dropped the games and teams tables in the db
-router.get("/initdb", function (req, res) {
+router.get("/loadgames", function (req, res) {
   console.log('initdb');
   fs.readFile(path.join(__dirname, "../../data/rundown.json"), "utf8", function (error, data) {
     if (error) {
@@ -74,7 +74,7 @@ function createGame(db, gameAt, teams, spread, spreadPayout, ml) {
   })
 };
 
-router.get("/rungames", function (req, res) {
+router.get("/playgames", function (req, res) {
   var gameIDs = [3, 5, 7]
   for (var i = 0; i < gameIDs.length; i++) {
     console.log('running game', gameIDs[i]);
@@ -89,12 +89,12 @@ router.get("/rungames", function (req, res) {
   res.status(200).end();
 })
 
-router.get("/doBets", function (req, res) {
-  doBets();
+router.get("/paybets", function (req, res) {
+  payBets();
   res.status(200).end();
 })
 
-function doBets() {
+function payBets() {
   db.Game.findAll({ where: { state: "Ended" } })
     .then(function (games) {
       console.log('games processing', games.length);
@@ -195,7 +195,7 @@ function spreadPayout(bet) {
     })
 }
 
-router.get("/placebets", function (req, res) {
+router.get("/loadbets", function (req, res) {
   console.log('placebets');
   db.Bet.create({
     userId: 1,
