@@ -1,7 +1,6 @@
 import React from 'react';
 import './Transactions.css';
 import Transaction from '../Transaction/Transaction'
-
 const Transactions = (props) => {
   return (
     <div className="container">
