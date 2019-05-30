@@ -28,7 +28,7 @@ class Login extends Component {
         }
 
         login(user).then(res => {
-            if (!res.error) {
+            if (!res.error)  {
                 this.props.history.push(`/dashboard`)
             } else {
                 this.setState({error: res.error})
