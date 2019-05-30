@@ -1,20 +1,26 @@
 import axios from 'axios';
 
 export default {
-  getGames: function() {
-    return axios.get('/api/admin/getgames');
+  getGamesFromAPI: function() {
+    return axios.get('/api/admin/getGamesFromAPI');
   },
-  loadGames: function(data) {
+  loadGames: function() {
     return axios.get('/api/admin/loadgames');
   },
-  loadBets: function(data) {
+  loadBets: function() {
     return axios.get('/api/admin/loadbets');
   },
-  playGames: function(data) {
+  playGames: function() {
     return axios.get('/api/admin/playgames');
   },
-  payBets: function(data) {
+  payBets: function() {
     return axios.get('/api/admin/paybets');
+  },
+  getGames: function() {
+    return axios.get('/api/games');
+  },
+  getUserBets: function(userId) {
+    return axios.get('/api/bets/user/'+userId);
   }
   // // Gets the book with the given id
   // getBook: function(id) {
