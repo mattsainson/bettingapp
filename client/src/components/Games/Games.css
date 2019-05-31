@@ -1,0 +1,22 @@
+.row:nth-child(odd){
+    background-color:#7c8eea;
+  }
+  .row:nth-child(even){
+    background-color:#c4c7c7cf;
+  }
+
+  .col-3{
+  /* padding: 10px; */
+  color: black;
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px; 
+  line-height: 20px;
+  border: 1px black solid;
+  }
+
+  .container{
+    width: 90%;
+  }
+

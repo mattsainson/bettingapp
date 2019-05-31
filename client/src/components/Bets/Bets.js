@@ -4,22 +4,22 @@ import Bet from '../Bet/Bet'
 
 const Bets = (props) => {
   return (
-    <div className="container">
+    <div className="container containerBG">
+      <h1>Bets</h1>
       <div className="row">
-        <div className="col-sm">User</div>
-        <div className="col-sm">Game</div>
-        <div className="col-sm">Team</div>
-        <div className="col-sm">Bet Type</div>
-        <div className="col-sm">Wager</div>
-        <div className="col-sm">Result</div>
-        <div className="col-sm">Placed</div>
+        <div className="col-sm"><h6>User</h6></div>
+        <div className="col-sm"><h6>Game</h6></div>
+        <div className="col-sm"><h6>Team</h6></div>
+        <div className="col-sm"><h6>Bet Type</h6></div>
+        <div className="col-sm"><h6>Wager</h6></div>
+        <div className="col-sm"><h6>Result</h6></div>
+        <div className="col-sm"><h6>Placed At</h6></div>
       </div>
       {props.bets.map(b => (
       <Bet
-        key={b.id.toString()}
         userId={b.userId}
-        gamesId={b.gamesId}
-        teamsId={b.teamsId}
+        gamesId={b.gameId}
+        teamsId={b.teamId}
         betType={b.betType}
         wager={b.wager}
         result={b.result}

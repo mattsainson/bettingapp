@@ -1,5 +1,6 @@
 import React from 'react';
 import './Bet.css';
+import Moment from 'react-moment';
 
 const Bet = (props) => {
     return (
@@ -10,7 +11,7 @@ const Bet = (props) => {
             <div className="col-sm">{ props.betType }</div>
             <div className="col-sm">{ props.wager }</div>
             <div className="col-sm">{ props.result }</div>
-            <div className="col-sm">{ props.placedAt }</div>
+            <div className="col-sm"><Moment format="hh:mm A">{ props.placedAt }</Moment></div>
         </div>
     );
 }

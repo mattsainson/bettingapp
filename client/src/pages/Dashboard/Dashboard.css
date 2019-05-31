@@ -1,3 +1,17 @@
 .dashboard{
-    background-color: #89dfc8;
+    background-color: white;
+    justify-content: flex-start;
+    margin: 10px; 
+}
+
+.col-4{
+    background-color: white;
+}
+
+.col-8{
+    background-color: white;
+}
+
+.col-2{
+    background-color: white;
 }
