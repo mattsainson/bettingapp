@@ -5,11 +5,12 @@ import Game from '../Game/Game'
 const Games = (props) => {
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-sm">Sport</div>
-        <div className="col-sm">League</div>
-        <div className="col-sm">Game Time</div>
-        <div className="col-sm">State</div>
+      <h1>Games</h1>
+      <div className="row tablerow">
+        <div className="col-3"></div>
+        <div className="col-3"></div>
+        <div className="col-3"></div>
+        <div className="col-3"></div>
       </div>
       {props.games.map(g => (
       <Game
@@ -18,8 +19,10 @@ const Games = (props) => {
         league={g.league}
         gameAt={g.gameAt}
         state={g.state}
-      />
+        team={g.teams}>
+        </Game>
       ))}
+      {console.log(props)}
     </div>
   );
 }

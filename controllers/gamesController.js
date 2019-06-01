@@ -5,8 +5,23 @@ module.exports = {
     findAll: function (req, res) {
         db.Game
             .findAll({ order: [['gameAt', 'DESC']] })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .then(async games => {
+                const teams = await db.Team.findAll();
+                // console.log("games", games);
+                // console.log("teams", teams);
+                const newGames = games.map(g => ({
+                    id: g.id,
+                    gameAt: g.gameAt,
+                    state: g.state,
+                    teams: teams.filter(t => t.gameId === g.id)
+                }),
+                );            
+                res.status(200).send(newGames);
+            })
+            .catch(err => {
+                console.log(err)
+                res.status(422).json(err)
+            });
     },
     findById: function (req, res) {
         db.Game
