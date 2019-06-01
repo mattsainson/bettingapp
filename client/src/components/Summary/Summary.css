@@ -1,0 +1,22 @@
+.tablerow:nth-child(odd){
+  background-color:#7c8eea;
+  color: white;
+}
+.tablerow:nth-child(even){
+  background-color:#efefef;
+  color: black;
+}
+
+.col-sm{
+  font-family: 'Merriweather', serif;
+  /* text-align: center; */
+  text-decoration: none;
+  font-size: 12px; 
+  line-height: 20px;
+  padding: 1% 0;
+  margin: auto;
+}
+
+.sumContainer{
+ width: 60%; 
+}

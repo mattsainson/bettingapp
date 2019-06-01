@@ -46,18 +46,30 @@ class Dashboard extends Component {
     render(props) {
         return (
             <div className="dashboard">
-                <Summary
-                    balance={this.state.balance}
-                    outstanding={this.state.outstanding}
-                    ytdWins={this.state.ytdWins}
-                    ytdLosses={this.state.ytdLosses}
-                    lastBet={this.state.lastBet}
-                    firstBet={this.state.firstBet}
-                    biggestBet={this.state.biggestBet}
-                    avgBet={this.state.avgBet}
-                />
-                <Games games={this.state.games} />
-                <Bets bets={this.state.bets} />
+
+                <div className="row">
+                    <div className="col-8">
+                        <Games games={this.state.games} />
+                    </div>
+                    <div className="col-4">
+                    <div className="row">
+                        <Summary
+                            balance={this.state.balance}
+                            outstanding={this.state.outstanding}
+                            ytdWins={this.state.ytdWins}
+                            ytdLosses={this.state.ytdLosses}
+                            lastBet={this.state.lastBet}
+                            firstBet={this.state.firstBet}
+                            biggestBet={this.state.biggestBet}
+                            avgBet={this.state.avgBet}
+                        />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <Bets bets={this.state.bets} />
+                </div>
             </div>
         );
     }
