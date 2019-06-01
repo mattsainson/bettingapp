@@ -16,16 +16,18 @@ const Bets = (props) => {
         <div className="col-sm"><h6>Placed At</h6></div>
       </div>
       {props.bets.map(b => (
-        <Bet
-          userId={b.userId}
-          gamesId={b.gameId}
-          teamsId={b.teamId}
-          betType={b.betType}
-          wager={b.wager}
-          result={b.result}
-          placedAt={b.placedAt}
-        ></Bet>
+      <Bet
+        key={b.id.toString()}
+        userId={b.id}
+        gameId={b.gameId}
+        teamId={b.teamId}
+        betType={b.betType}
+        wager={b.wager}
+        result={b.result}
+        placedAt={b.placedAt}>
+        </Bet>
       ))}
+      {console.log(props)}
     </div>
   );
 }

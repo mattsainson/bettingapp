@@ -19,8 +19,11 @@ const Games = (props) => {
         sport={g.sport}
         league={g.league}
         gameAt={g.gameAt}
-        state={g.state}></Game>
+        state={g.state}
+        team={g.teams}>
+        </Game>
       ))}
+      {console.log(props)}
     </div>
   );
 }

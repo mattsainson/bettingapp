@@ -8,16 +8,24 @@
 }
 
   .col-sm{
-  /* padding: 10px; */
-  color: black;
-  font-family: 'Merriweather', serif;
-  text-align: center;
-  text-decoration: none;
-  font-size: 10px; 
-  line-height: 20px;
-  border: 1px black solid;
-  /* max-width: 185px; */
-  
+    font-family: 'Merriweather', serif;
+    /* text-align: center; */
+    text-decoration: none;
+    font-size: 12px; 
+    line-height: 20px;
+    padding: 1% 0;
+    margin: auto;
   }
 
+  .row{
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px; 
+    line-height: 20px;
+    padding: 2px;
+  }
 
+  .container{
+    width: 90%;
+  }

@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
             notEmpty: true,
             allowNull: false
         },
-       });
-    
+    });
+
     return newGames;
 };

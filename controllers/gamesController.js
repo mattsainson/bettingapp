@@ -14,9 +14,9 @@ module.exports = {
                     gameAt: g.gameAt,
                     state: g.state,
                     teams: teams.filter(t => t.gameId === g.id)
-                }),
+                    }),
                 );  
-                console.log("new games", newGames)             
+                // console.log("new games", newGames)             
         res.status(200).send(newGames);
     })
             .catch(err => {console.log(err)

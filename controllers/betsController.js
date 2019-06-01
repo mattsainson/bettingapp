@@ -5,7 +5,23 @@ module.exports = {
     findAll: function (req, res) {
         db.Bet
             .findAll({ order: [['id', 'DESC']] })
-            .then(dbModel => res.json(dbModel))
+            .then(async bets => {
+                const bets = await db.Bet.findAll();
+                // console.log("games", games);
+                // console.log("teams", teams);
+                const newBets = bets.map(b => ({
+                    userId: b.id,
+                    gameId: b.gamesId,
+                    teamId: b.teamId,
+                    betType: b.betType,
+                    wager: b.wager,
+                    result: b.result,
+                    teams: teams.filter(t => t.id === b.teamId)
+                }),
+                );
+                console.log("new bets", newBets)
+                res.status(200).send(newBets);
+            })
             .catch(err => res.status(422).json(err));
     },
     findById: function (req, res) {
@@ -34,17 +50,17 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
-    update: function (req, res) {
-        db.Bet
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    },
-    remove: function (req, res) {
-        db.Bet
-            .findById({ _id: req.params.id })
-            .then(dbModel => dbModel.remove())
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    }
+update: function (req, res) {
+    db.Bet
+        .findOneAndUpdate({ _id: req.params.id }, req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+},
+remove: function (req, res) {
+    db.Bet
+        .findById({ _id: req.params.id })
+        .then(dbModel => dbModel.remove())
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+}
 };
