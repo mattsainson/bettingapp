@@ -23,8 +23,8 @@ export const login = user => {
             password: user.password
         })
         .then(res => {
-            localStorage.setItem('usertoken', res.data)
-            return res.data
+            localStorage.setItem('usertoken', JSON.stringify(res.data));
+            return res.data;
         })
         .catch(err => {
             console.log(err)

@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 // jwt middleware
 module.exports = function (req, res, next) {
   const token = req.header("Authorization");
+  console.log(token);
   let bearer = "";
   if (token) {
     bearer = token.replace("Bearer ", "")
