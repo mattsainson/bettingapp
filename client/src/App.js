@@ -10,6 +10,7 @@ import Bet from './pages/Betting/Betting';
 import Footer from './components/Footer/Footer.js';
 import NoMatch from './pages/NoMatch/NoMatch'
 import Admin from './pages/Admin/Admin';
+import {UserProvider} from './utils/UserContext';
 
 class App extends React.Component {
   
@@ -21,6 +22,7 @@ class App extends React.Component {
   
   render () {
     return (
+      <UserProvider>
       <Router>
         <div className="App">
           <Navbar />
@@ -36,6 +38,7 @@ class App extends React.Component {
         <Footer />
         </div>
       </Router>
+      </UserProvider>
     )}
 };
 

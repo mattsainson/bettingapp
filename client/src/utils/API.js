@@ -1,8 +1,12 @@
 import axios from 'axios';
 
 export default {
-  getGamesFromAPI: function() {
-    return axios.get('/api/admin/getGamesFromAPI');
+  getGamesFromAPI: function(token) {
+    return axios.get('/api/admin/getGamesFromAPI', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
   },
   loadGames: function() {
     return axios.get('/api/admin/loadgames');

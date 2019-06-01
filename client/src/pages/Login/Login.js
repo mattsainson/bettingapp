@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { login } from '../../components/UserFunctions/UserFunctions'
 import './Login.css'
+import UserContext from '../../utils/UserContext'; 
+
 
 class Login extends Component {
     constructor() {
@@ -8,7 +10,8 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
-            error: ''
+            error: '',
+            currentUser: null
         }
 
         this.onChange = this.onChange.bind(this)

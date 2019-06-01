@@ -9,7 +9,7 @@ export const register = newUser => {
             balance: newUser.balance
         })
         .then(res => {
-            console.log("Registered")
+            console.log("Registered ")
         })
         .catch(err => {
             console.log(err)

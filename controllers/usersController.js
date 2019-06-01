@@ -5,10 +5,10 @@ const jwt = require("jsonwebtoken");
 // Defining methods for the usersController
 module.exports = {
     findOne: function(req, res) {
-        const { username, password } = req.body;
+        const { email, password } = req.body;
         console.log(req.body);
         db.User
-          .findOne({username})
+          .findOne({email})
           .then(dbModel => {
             if(!dbModel) {
               return res.status(404).json({
@@ -26,12 +26,16 @@ module.exports = {
                   error: "password username not matching"
                 });
               }
-              const { username, _id: id } = dbModel;
+              const { email, _id: id } = dbModel;
     
-              const token = jwt.sign({username, id}, 'my-website-secrete');
+              const token = jwt.sign({
+                  email,
+                   id
+                }, "my-website-secrete");
+                console.log(token)
               return res.json({
                 id,
-                username,
+                email,
                 token
               })
               
