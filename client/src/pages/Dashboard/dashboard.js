@@ -31,7 +31,7 @@ class Dashboard extends Component {
     getGames = () => {
         API.getGames()
             .then(res =>
-                this.setState({ games: res.data, teams: res.data })
+                this.setState({ games: res.data })
             )
             .catch(err => console.log(err));
     };
@@ -39,7 +39,7 @@ class Dashboard extends Component {
     getUserBets = (userId) => {
         API.getUserBets(userId)
             .then(res =>
-                this.setState({ bets: res.data, teams: res.data  })
+                this.setState({ bets: res.data })
             )
             .catch(err => console.log(err));
     };
