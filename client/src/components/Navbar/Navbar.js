@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import './Navbar.css'
+import UserContext from '../../utils/UserContext';
 
 class Navbar extends Component {
     logOut(e) {
@@ -39,7 +40,7 @@ class Navbar extends Component {
             </ul>
         )
 
-        return (
+        return (                
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
                 <button className="navbar-toggler"
                     type="button"
@@ -56,6 +57,8 @@ class Navbar extends Component {
                     
                     {localStorage.usertoken ? userLink : loginRegLink}
                 </div>
+                <div>Hello, {this.props.email}</div>
+
             </nav>
         )
     }
