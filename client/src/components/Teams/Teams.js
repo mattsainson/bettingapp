@@ -5,14 +5,14 @@ import Team from '../Team/Team'
 const Teams = (props) => {
   return (
     <div className="container">
-      <div class="row">
-        <div class="col-sm">Game</div>
-        <div class="col-sm">Name</div>
-        <div class="col-sm">Home</div>
-        <div class="col-sm">Spread</div>
-        <div class="col-sm">Spread Payout</div>
-        <div class="col-sm">Moneyline Payout</div>
-        <div class="col-sm">Score</div>
+      <div className="row">
+        <div className="col-sm">Game</div>
+        <div className="col-sm">Name</div>
+        <div className="col-sm">Home</div>
+        <div className="col-sm">Spread</div>
+        <div className="col-sm">Spread Payout</div>
+        <div className="col-sm">Moneyline Payout</div>
+        <div className="col-sm">Score</div>
       </div>
       {props.teams.map(t => (
       <Team

@@ -125,9 +125,9 @@ function mlPayout(bet) {
       const winningTeam = (teams[0].score > teams[1].score) ? 0 : 1;
       if (teams[winningTeam].id === bet.teamId) {
         if (teams[winningTeam].moneylinePayout < 0) {
-          winnings = ((bet.wager / Math.abs(teams[winningTeam].moneylinePayout) * 100) + bet.wager);
+          winnings = Number((bet.wager / Math.abs(teams[winningTeam].moneylinePayout) * 100) + Number(bet.wager));
         } else {
-          winnings = (bet.wager + teams[winningTeam].moneylinePayout);
+          winnings = Number(Number(bet.wager) + Number(teams[winningTeam].moneylinePayout));
         }
         console.log("ML Payout", teams[winningTeam].moneylinePayout);
       } else {
@@ -179,13 +179,13 @@ function spreadPayout(bet) {
       var payout = (iBetUnderdog) ? Math.abs(teams[underdog].spreadPayout) : Math.abs(teams[favorite].spreadPayout);
       switch (betResult) {
         case 'Win':
-          winnings = bet.wager * (100/payout)+ bet.wager;
+          winnings = Number(bet.wager * (100/payout)+ bet.wager);
           break;
         case 'Lose':
           winnings = 0;
           break;
         case 'Push':
-          winnings = bet.wager;
+          winnings = Number(bet.wager);
           break;
       }
 
@@ -200,24 +200,80 @@ router.get("/loadbets", function (req, res) {
   db.Bet.create({
     userId: 1,
     gameId: 3,
-    teamId: 5,
+    teamId: 6,
     betType: "Moneyline",
+    wager: 100,
+    result: "Pending"
+  }),
+  db.Bet.create({
+    userId: 1,
+    gameId: 3,
+    teamId: 6,
+    betType: "Spread",
     wager: 100,
     result: "Pending"
   }),
     db.Bet.create({
       userId: 1,
       gameId: 5,
-      teamId: 7,
+      teamId: 9,
       betType: "Spread",
       wager: 50,
       result: "Pending"
     }),
     db.Bet.create({
       userId: 1,
-      gameId: 7,
-      teamId: 12,
+      gameId: 5,
+      teamId: 9,
+      betType: "Moneyline",
+      wager: 50,
+      result: "Pending"
+    }),
+    db.Bet.create({
+      userId: 1,
+      gameId: 5,
+      teamId: 10,
       betType: "Spread",
+      wager: 50,
+      result: "Pending"
+    }),
+    db.Bet.create({
+      userId: 1,
+      gameId: 5,
+      teamId: 10,
+      betType: "Moneyline",
+      wager: 50,
+      result: "Pending"
+    }),
+    db.Bet.create({
+      userId: 1,
+      gameId: 7,
+      teamId: 13,
+      betType: "Spread",
+      wager: 100,
+      result: "Pending"
+    }),
+    db.Bet.create({
+      userId: 1,
+      gameId: 7,
+      teamId: 13,
+      betType: "Moneyline",
+      wager: 100,
+      result: "Pending"
+    }),
+    db.Bet.create({
+      userId: 1,
+      gameId: 7,
+      teamId: 14,
+      betType: "Spread",
+      wager: 100,
+      result: "Pending"
+    }),
+    db.Bet.create({
+      userId: 1,
+      gameId: 7,
+      teamId: 14,
+      betType: "Moneyline",
       wager: 100,
       result: "Pending"
     })

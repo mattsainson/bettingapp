@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Games from '../../components/Games/Games';
 import Bets from '../../components/Bets/Bets';
 import Summary from '../../components/Summary/Summary';
-// import games from '../../components/games.json';
 import './Dashboard.css';
 import API from '../../utils/API';
 
