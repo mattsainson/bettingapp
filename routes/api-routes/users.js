@@ -9,7 +9,7 @@ const isAuthenticated = require("../../controllers/authentication");
 router.use(cors())
 
 // Matches with "/api/users"
-router.route("/dashboard")
+router.route("/")
   .get(isAuthenticated, usersController.findAll)
   .post(usersController.create);
 

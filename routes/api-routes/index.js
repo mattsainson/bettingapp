@@ -5,13 +5,15 @@ const gamesRoutes = require('./games');
 const usersRoutes = require('./users');
 const teamsRoutes = require('./teams');
 const adminRoutes = require('./admin');
+const isAuthenticated = require("../../controllers/authentication");
+
 
 // All routes
-router.use('/bets', betsRoutes);
-router.use('/money', betTransactionsRoutes);
-router.use('/games', gamesRoutes);
+router.use('/bets', isAuthenticated, betsRoutes);
+router.use('/money', isAuthenticated, betTransactionsRoutes);
+router.use('/games', isAuthenticated, gamesRoutes);
 router.use('/users', usersRoutes);
-router.use('/teams', teamsRoutes);
-router.use('/admin', adminRoutes);
+router.use('/teams', isAuthenticated, teamsRoutes);
+router.use('/admin', isAuthenticated, adminRoutes);
 
 module.exports = router;
