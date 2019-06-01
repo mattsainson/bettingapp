@@ -19,7 +19,6 @@ module.exports = {
                     teams: teams.filter(t => t.id === b.teamId)
                 }),
                 );
-                console.log("new bets", newBets)
                 res.status(200).send(newBets);
             })
             .catch(err => res.status(422).json(err));

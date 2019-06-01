@@ -2,7 +2,7 @@ import React from 'react';
 import './Game.css';
 import Moment from 'react-moment';
 
-const newGames = (props) => {
+const Game = (props) => {
     return (
         <div className="row tablerow" id="{ props.key }">
             
@@ -32,4 +32,4 @@ const newGames = (props) => {
     );
 }
 
-export default newGames;
+export default Game;

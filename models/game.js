@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var newGames = sequelize.define('Game', {
+    var Games = sequelize.define('Game', {
         sport: {
             type: DataTypes.STRING,
             notEmpty: true,
@@ -22,5 +22,5 @@ module.exports = function (sequelize, DataTypes) {
         },
     });
 
-    return newGames;
+    return Games;
 };

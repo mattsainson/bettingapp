@@ -2,7 +2,7 @@ import React from 'react';
 import './Bet.css';
 import Moment from 'react-moment';
 
-const newBet = (props) => {
+const Bet = (props) => {
     return (
         <div className="row tablerow" id="{props.key}">
             <div className="col-sm">{ props.userId }</div>
@@ -16,4 +16,4 @@ const newBet = (props) => {
     );
 }
 
-export default newBet;
+export default Bet;

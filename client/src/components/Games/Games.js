@@ -1,7 +1,6 @@
 import React from 'react';
 import './Games.css';
 import Game from '../Game/Game'
-// import Moment from 'react-moment'
 
 const Games = (props) => {
   return (
