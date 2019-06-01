@@ -64,3 +64,6 @@ config/config.json
 
 # vscode stuff
 .vscode/
+
+#dont overwrite game data
+data/rundown.json
