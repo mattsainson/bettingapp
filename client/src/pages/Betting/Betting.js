@@ -11,6 +11,11 @@ class Betting extends Component {
         gameId: 0 
     }
 
+    componentDidMount () {
+        const { userId, gameId } = this.props.location.state
+        this.setState({userId, gameId});
+      }
+
     render(props) {
         return (
             <div className="bettingform">
