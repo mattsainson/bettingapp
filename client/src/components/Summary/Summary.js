@@ -3,12 +3,11 @@ import './Summary.css';
 
 const Summary = (props) => {
     return (
-        <div className="container">
+        <div
+            className="container">
             <h1>Summary</h1>
             <div className="row">
-
                 <div className="col-sm">
-                
                     <div className="row">
                         <div className="col-sm">
                             Balance
@@ -17,7 +16,6 @@ const Summary = (props) => {
                             {props.balance}
                         </div>
                     </div>
-                    
                     <div className="row">
                         <div className="col-sm">
                             Outstanding
@@ -26,7 +24,6 @@ const Summary = (props) => {
                             {props.outstanding}
                         </div>
                     </div>
-                    
                     <div className="row">
                         <div className="col-sm">
                             YTD Wins
@@ -35,7 +32,6 @@ const Summary = (props) => {
                             {props.ytdWins}
                         </div>
                     </div>
-                    
                     <div className="row">
                         <div className="col-sm">
                             YTD Losses
@@ -45,9 +41,9 @@ const Summary = (props) => {
                         </div>
                     </div>
                 </div>
-                
-                <div className="col">
-                    
+
+                <div className="col-sm">
+
                     <div className="row">
                         <div className="col-sm">
                             Last Bet
@@ -56,7 +52,7 @@ const Summary = (props) => {
                             {props.lastBetAt}
                         </div>
                     </div>
-                    
+
                     <div className="row">
                         <div className="col-sm">
                             First Bet
@@ -65,7 +61,7 @@ const Summary = (props) => {
                             {props.firstBetAt}
                         </div>
                     </div>
-                    
+
                     <div className="row">
                         <div className="col-sm">
                             Biggest Bet
@@ -74,7 +70,7 @@ const Summary = (props) => {
                             {props.biggestBet}
                         </div>
                     </div>
-                    
+
                     <div className="row">
                         <div className="col-sm">
                             Avg. Bet

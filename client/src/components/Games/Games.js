@@ -5,13 +5,13 @@ import Game from '../Game/Game'
 
 const Games = (props) => {
   return (
-    <div className="container game">
+    <div className="container">
       <h1>Games</h1>
-      <div className="row">
-        <div className="col-3"><h5>Sport</h5></div>
-        <div className="col-3"><h5>League</h5></div>
-        <div className="col-3"><h5>Game Time</h5></div>
-        <div className="col-3"><h5>State</h5></div>
+      <div className="row tablerow">
+        <div className="col-3"></div>
+        <div className="col-3"></div>
+        <div className="col-3"></div>
+        <div className="col-3"></div>
       </div>
       {props.games.map(g => (
       <Game

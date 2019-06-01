@@ -1,11 +1,13 @@
-.row:nth-child(odd){
-    background-color:#7c8eea;
-  }
-  .row:nth-child(even){
-    background-color:#c4c7c7cf;
-  }
+.tablerow:nth-child(odd){
+  background-color:#7c8eea;
+  color: white;
+}
+.tablerow:nth-child(even){
+  background-color:#efefef;
+  color: black;
+}
 
-  .col-2{
+  .col-sm{
   /* padding: 10px; */
   color: black;
   font-family: 'Merriweather', serif;

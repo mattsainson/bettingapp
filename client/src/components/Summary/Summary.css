@@ -1,8 +1,10 @@
-.row:nth-child(odd){
+.tablerow:nth-child(odd){
   background-color:#7c8eea;
+  color: white;
 }
-.row:nth-child(even){
-  background-color:#c4c7c7cf;
+.tablerow:nth-child(even){
+  background-color:#efefef;
+  color: black;
 }
 
 .col-sm{
