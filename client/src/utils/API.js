@@ -62,9 +62,6 @@ export default {
   getTeamsForGame: function (id) {
     return axios.get('/api/teams/game/' + id);
   },
-  getUserBets: function (userId) {
-    return axios.get('/api/bets/user/' + userId);
-  },
   placeBet: function (data) {
     return axios.post('/api/bets', data);
   },

@@ -6,7 +6,7 @@ import { Pie, Bar } from 'react-chartjs-2';
 import './Dashboard.css';
 import API from '../../utils/API';
 import UserContext from '../../utils/UserContext';
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 
 
@@ -60,7 +60,6 @@ class Dashboard extends Component {
     };
 
     componentDidMount() {
-        const { user } = this.context;
         console.log('componentDidMount');
         this.getGames();
         this.getUserBets(this.state.userId);
