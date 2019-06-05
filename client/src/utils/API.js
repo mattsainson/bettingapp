@@ -8,23 +8,57 @@ export default {
       }
     });
   },
-  loadGames: function() {
-    return axios.get('/api/admin/loadgames');
+  loadGames: function(token) {
+    return axios.get('/api/admin/loadgames',  {
+      headers: {
+        'Authorization': `Bearer ${token}`
+  }
+})
+},
+  loadBets: function(token) {
+    return axios.get('/api/admin/loadbets',  {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+     });
   },
-  loadBets: function() {
-    return axios.get('/api/admin/loadbets');
+  playGames: function(token) {
+    return axios.get('/api/admin/playgames',  {
+      headers: {
+        'Authorization': `Bearer ${token}`
+       }
+       } );
   },
-  playGames: function() {
-    return axios.get('/api/admin/playgames');
+  payBets: function(token) {
+    return axios.get('/api/admin/paybets', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
   },
-  payBets: function() {
-    return axios.get('/api/admin/paybets');
+  getGames: function(token) {
+    return axios.get('/api/games' , {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }); 
   },
-  getGames: function() {
-    return axios.get('/api/games');
+  getUserBets: function(userId, token) {
+    return axios.get('/api/bets/user/'+userId, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
   },
-  getUserBets: function(userId) {
-    return axios.get('/api/bets/user/'+userId);
+  signup: function(userData) {
+    return axios.post("api/users/register", userData);
+  },
+  login: function(userData) {
+    return axios.post("api/users/login", userData);
+  },
+
+  getprofile: function() {
+    return axios.get("api/users/");
   }
   // // Gets the book with the given id
   // getBook: function(id) {

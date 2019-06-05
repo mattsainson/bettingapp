@@ -8,7 +8,7 @@ module.exports = {
         const { email, password } = req.body;
         console.log(req.body);
         db.User
-          .findOne({email})
+          .findOne({ where: {email: email} })
           .then(dbModel => {
             if(!dbModel) {
               return res.status(404).json({
@@ -23,20 +23,24 @@ module.exports = {
               }
               if (!same) {
                 return res.status(404).json({
-                  error: "password username not matching"
+                  error: "Password and Username are not matching!"
                 });
               }
-              const { email, _id: id } = dbModel;
+              const { email, _id: id, balance, name } = dbModel;
     
               const token = jwt.sign({
                   email,
-                   id
-                }, "my-website-secrete");
-                console.log(token)
+                   id,
+                   balance,
+                   name
+                }, "super-secret");
+                // console.log(token)
               return res.json({
                 id,
                 email,
-                token
+                token,
+                balance,
+                name
               })
               
             })

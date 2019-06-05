@@ -10,14 +10,14 @@ const Transactions = (props) => {
         <div class="col-sm">Date/Time</div>
         <div class="col-sm">Amount</div>
       </div>
-      {props.transactions.map(t => (
+      {/* {props.transactions.map(t => (
       <Transaction
         userId={t.userId}
         betId={t.betId}
         transactionAt={t.transactionAt}
         transactionAmount={t.transactionAmount}
       />
-      ))}
+      ))} */}
     </div>
   );
 }

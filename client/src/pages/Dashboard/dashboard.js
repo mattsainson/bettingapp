@@ -5,9 +5,13 @@ import Summary from '../../components/Summary/Summary';
 import { Pie, Bar } from 'react-chartjs-2';
 import './Dashboard.css';
 import API from '../../utils/API';
+import UserContext from '../../utils/UserContext';
+import { Link, Redirect } from "react-router-dom";
+
+
 
 class Dashboard extends Component {
-
+    static contextType = UserContext;
     state = {
         userId: 1,
         games: [],
@@ -56,6 +60,7 @@ class Dashboard extends Component {
     };
 
     componentDidMount() {
+        const { user } = this.context;
         console.log('componentDidMount');
         this.getGames();
         this.getUserBets(this.state.userId);
@@ -63,7 +68,9 @@ class Dashboard extends Component {
     }
 
     getGames = () => {
-        API.getGames()
+        const { user } = this.context;
+        console.log(user.token)
+        API.getGames(user.token)
             .then(res =>
                 this.setState({ games: res.data })
             )
@@ -71,7 +78,8 @@ class Dashboard extends Component {
     };
 
     getUserBets = (userId) => {
-        API.getUserBets(userId)
+        const { user } = this.context;
+        API.getUserBets(userId, user.token)
             .then(res =>
                 this.setState({ bets: res.data })
             )
@@ -79,7 +87,9 @@ class Dashboard extends Component {
     };
 
     render(props) {
-        return (
+        const { user } = this.context;
+        return user 
+         ? (
             <div className="dashboard">
 
                 <div className="row">
@@ -114,7 +124,8 @@ class Dashboard extends Component {
                 </div>
 
             </div>
-        );
+        )
+        : <Redirect to="/login" />
     }
 }
 
