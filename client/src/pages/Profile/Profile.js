@@ -3,6 +3,8 @@ import jwt_decode from 'jwt-decode'
 import Transactions from '../../components/Transactions/Transactions'
 import API from '../../utils/API';
 import axios from 'axios'
+import UserContext from '../../utils/UserContext';
+
 
 
 // class Profile extends Component {
@@ -63,6 +65,7 @@ import axios from 'axios'
 
 
 class Profile extends React.Component {
+    static contextType = UserContext;
     constructor(props) {
       super(props);
       this.state = {
@@ -97,26 +100,34 @@ class Profile extends React.Component {
     
      
     render() {
+        const { user } = this.context;
       return (
-        <div className="col-md-5">
-          <div className="form-area">  
+        <div className="container">
+          <div className="row">  
+          <div class="col">
+            </div>
+            <div class="col">
+            
               <form role="form">
                 <br styles="clear:both" />
                 <div className="form-group">
-                  <input value={this.state.name} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Name" required />
+                  <input value={user.name} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Name" required />
                 </div>
                 <div className="form-group">
-                  <input value={this.state.email} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Email" required />
+                  <input value={user.email} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Email" required />
                 </div>
                 <div className="form-group">
-                  <input value={this.state.balance} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Name" required />
+                  <input value={user.balance} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Name" required />
                 </div>
                 <div className="form-group">
-                  <input value={this.state.password} type="password" onChange={this.handlePasswordChange} className="form-control" placeholder="Password" required />
+                  <input value={user.password} type="password" onChange={this.handlePasswordChange} className="form-control" placeholder="Password" required />
                 </div>
                 
                 <button type="button" onClick={this.updateProfile} id="submit" name="submit" className="btn btn-primary pull-right">Update</button>
               </form>
+              </div>
+              <div class="col">
+            </div>
           </div>
         </div>
       )
