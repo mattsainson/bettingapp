@@ -76,7 +76,7 @@ class Register extends React.Component {
         />
          </div>
         <br />
-        <button className="btn btn-lg btn-primary" onClick={this.handleSignup}>Sign up</button>
+        <button className="btn btn-lg btn-dark" onClick={this.handleSignup}>Sign up</button>
         <p class="margin medium-small"><a href="/login">Already Registered? Login Now!</a></p>
         </div>
         <div class="col">

@@ -68,7 +68,7 @@ class Login extends React.Component {
             />
             </div>
             <br />
-            <button className="btn btn-lg btn-primary" onClick={() => this.handleLogin(onLogin)}>Login</button>
+            <button className="btn btn-lg btn-dark" onClick={() => this.handleLogin(onLogin)}>Login</button>
         <p class="margin medium-small"><a href="/register">Not Yet Registered? Register Now!</a></p>
         
             <br />

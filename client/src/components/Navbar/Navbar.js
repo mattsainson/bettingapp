@@ -26,6 +26,11 @@ class Navbar extends Component {
         )
         const userLink = (
             <ul className="navbar-nav justify-content-md-end">
+                 <li className="nav-item">
+                    <Link to="/admin" className="nav-link">
+                    <i class="fas fa-users-cog fa-2x"></i>
+                     </Link>
+                </li>
                 <li className="nav-item">
                     <Link to="/profile" className="nav-link">
                     <i className="fas fa-user fa-2x"></i>
