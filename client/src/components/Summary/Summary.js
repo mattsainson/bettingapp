@@ -1,5 +1,7 @@
 import React from 'react';
 import './Summary.css';
+import { Pie } from 'react-chartjs-2';
+
 
 const Summary = (props) => {
     return (
@@ -74,9 +76,15 @@ const Summary = (props) => {
                             {props.avgBet}
                         </div>
                     </div>
-
                 </div>
             </div>
+            <Pie
+            data={props.state}
+            width={100}
+            height={50}
+            options={props.options}
+            legend={props.legend}
+        />
         </div>
     );
 }
