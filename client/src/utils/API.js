@@ -23,9 +23,19 @@ export default {
   getGames: function() {
     return axios.get('/api/games');
   },
+  getGame: function(id) {
+    return axios.get('/api/games/'+id);
+  },
+  getTeamsForGame: function(id) {
+    return axios.get('/api/teams/game/'+id);
+  },
   getUserBets: function(userId) {
     return axios.get('/api/bets/user/'+userId);
+  },
+  placeBet: function(data) {
+    return axios.post('/api/bets', data);
   }
+
   // // Gets the book with the given id
   // getBook: function(id) {
   //   return axios.get("/api/books/" + id);

@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 
 const Bet = (props) => {
     return (
-        <div className="row tablerow" id="{props.key}">
+        <div className="row datarow tablerow">
             <div className="col-sm">{ props.userId }</div>
             <div className="col-sm">{ props.gameId }</div>
             <div className="col-sm">{ props.teamId }</div>

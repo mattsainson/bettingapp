@@ -22,7 +22,7 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
+        console.log('componentDidMount-dashboard');
         this.getGames();
         this.getUserBets(this.state.userId);
     }
@@ -49,7 +49,7 @@ class Dashboard extends Component {
 
                 <div className="row">
                     <div className="col-8">
-                        <Games games={this.state.games} />
+                        <Games games={this.state.games} history={this.props.history}/>
                     </div>
                     <div className="col-4">
                     <div className="row">

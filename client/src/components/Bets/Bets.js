@@ -6,7 +6,7 @@ const Bets = (props) => {
   return (
     <div className="container">
       <h1>Bets</h1>
-      <div className="row tablerow">
+      <div className="row headerrow">
         <div className="col-sm"><h6>User</h6></div>
         <div className="col-sm"><h6>Game</h6></div>
         <div className="col-sm"><h6>Team</h6></div>
@@ -27,7 +27,6 @@ const Bets = (props) => {
         placedAt={b.placedAt}>
         </Bet>
       ))}
-      {console.log(props)}
     </div>
   );
 }
