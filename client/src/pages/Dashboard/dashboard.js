@@ -90,7 +90,7 @@ class Dashboard extends Component {
         return user
             ? (
                 <div className="dashboard">
-
+                    <h6>Welcome {user.name}, Your Current Balance is $ {user.balance}</h6>
                     <div className="row">
                         <div className="col-8">
                             <Games games={this.state.games} history={this.props.history} />

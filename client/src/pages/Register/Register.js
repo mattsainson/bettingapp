@@ -30,43 +30,62 @@ class Register extends React.Component {
 
     return (
       <div>
-        <h1>Sign up</h1>
-        <label htmlFor="name">Email</label>
-        <input
+          <div className="container">
+          <div className="row">
+          <div class="col">
+        </div>
+        <div class="col">
+        <div class="form-group">
+        <h1>Sign Up for BetMo!</h1>
+        <input className="form-control"
+            placeholder="Email"
            autoComplete="on"
            type="text"
            name="email"
            value={email}
            onChange={this.handleChange}
-        />
-
-        <label htmlFor="password">Password</label>
-        <input
+                />
+        </div>
+        <div class="form-group">
+        <input className="form-control"
+         placeholder="Password"
           type="password"
           name="password"
           value={password}
           onChange={this.handleChange}
-        />
-        <label htmlFor="name">Name</label>
-        <input
+            />
+        </div>
+        <div class="form-group">
+        <input className="form-control"
+            placeholder="Full Name"
            autoComplete="off"
            type="text"
            name="name"
            value={name}
            onChange={this.handleChange}
-        />
-        <label htmlFor="name">Balance</label>
-        <input
+                 />
+        </div>
+        <div class="form-group">
+        <input className="form-control"
+             placeholder="Enter Your Balance"
            autoComplete="off"
            type="number"
            name="balance"
            value={balance}
            onChange={this.handleChange}
         />
-
+         </div>
+        <br />
         <button className="btn btn-lg btn-primary" onClick={this.handleSignup}>Sign up</button>
         <p class="margin medium-small"><a href="/login">Already Registered? Login Now!</a></p>
+        </div>
+        <div class="col">
+        </div>
       </div>
+      </div>
+      </div>
+
+      
     );
   }
 }
