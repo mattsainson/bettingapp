@@ -1,15 +1,5 @@
-.tablerow:nth-child(odd){
-  background-color:#7c8eea;
-  color: white;
-}
-.tablerow:nth-child(even){
-  background-color:#efefef;
-  color: black;
-}
-
 .col-sm{
-  font-family: 'Merriweather', serif;
-  /* text-align: center; */
+  font-family: 'Roboto', sans-serif;
   text-decoration: none;
   font-size: 12px; 
   line-height: 20px;
@@ -18,5 +8,5 @@
 }
 
 .sumContainer{
- width: 60%; 
+  width: 60%; 
 }

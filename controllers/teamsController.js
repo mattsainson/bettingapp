@@ -18,6 +18,17 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findByGameId: function (req, res) {
+        db.Team
+            .findAll({
+                where: {
+                    gameId: req.params.id
+                },
+                order: [['home', 'ASC']]
+            })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
     create: function (req, res) {
         db.Team
             .create(req.body)

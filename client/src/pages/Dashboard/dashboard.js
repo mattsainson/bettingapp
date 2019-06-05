@@ -88,44 +88,44 @@ class Dashboard extends Component {
 
     render(props) {
         const { user } = this.context;
-        return user 
-         ? (
-            <div className="dashboard">
+        return user
+            ? (
+                <div className="dashboard">
 
-                <div className="row">
-                    <div className="col-8">
-                        <Games games={this.state.games} />
+                    <div className="row">
+                        <div className="col-8">
+                            <Games games={this.state.games} history={this.props.history} />
+                        </div>
+                        <div className="col-4">
+                            <div className="row">
+                                <Summary
+                                    balance={this.state.balance}
+                                    outstanding={this.state.outstanding}
+                                    ytdWins={this.state.ytdWins}
+                                    ytdLosses={this.state.ytdLosses}
+                                    lastBet={this.state.lastBet}
+                                    firstBet={this.state.firstBet}
+                                    biggestBet={this.state.biggestBet}
+                                    avgBet={this.state.avgBet}
+                                />
+                            </div>
+                            <div className="row">
+                                <h6>Pie Chart</h6>
+                                <Pie data={this.pieData} />
+                            </div>
+                            <div className="row">
+                                <h6>Bar Chart</h6>
+                                <Bar data={this.barData} />
+                            </div>
+                        </div>
                     </div>
-                    <div className="col-4">
-                        <div className="row">
-                            <Summary
-                                balance={this.state.balance}
-                                outstanding={this.state.outstanding}
-                                ytdWins={this.state.ytdWins}
-                                ytdLosses={this.state.ytdLosses}
-                                lastBet={this.state.lastBet}
-                                firstBet={this.state.firstBet}
-                                biggestBet={this.state.biggestBet}
-                                avgBet={this.state.avgBet}
-                            />
-                        </div>
-                        <div className="row">
-                            <h6>Pie Chart</h6>
-                            <Pie data={this.pieData} />
-                        </div>
-                        <div className="row">
-                            <h6>Bar Chart</h6>
-                            <Bar data={this.barData} />
-                        </div>
+                    <div className="row">
+                        <Bets bets={this.state.bets} />
                     </div>
-                </div>
-                <div className="row">
-                    <Bets bets={this.state.bets} />
-                </div>
 
-            </div>
-        )
-        : <Redirect to="/login" />
+                </div>
+            )
+            : <Redirect to="/login" />
     }
 }
 

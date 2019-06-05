@@ -1,31 +1,70 @@
 .tablerow:nth-child(odd){
-  background-color:#7c8eea;
-  color: white;
+  background-color:#ebeefd;
+  color: black;
 }
 .tablerow:nth-child(even){
-  background-color:#efefef;
+  background-color:#f8dfb9;
   color: black;
 }
 
-  .col-3{
-  font-family: 'Merriweather', serif;
-  /* text-align: center; */
+.headerrow {
+  background-color:#0e142e;
+  color: rgb(236, 242, 252);
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.col-2 {
+  font-family: 'Roboto', sans-serif;
   text-decoration: none;
-  font-size: 12px; 
-  line-height: 20px;
+  font-size: 14px; 
+  line-height: 14px;
   padding: 1% 0;
   margin: auto;
-    }
-
-  .container{
-    width: 90%;
+  text-align: center;
   }
 
-.row{
-  font-family: 'Merriweather', serif;
-  text-align: center;
+.col-sm {
+  font-family: 'Roboto', sans-serif;
   text-decoration: none;
-  font-size: 12px; 
-  line-height: 20px;
-  padding: 2px;
+  font-size: 14px; 
+  line-height: 14px;
+  padding: 1% 0;
+  margin: auto;
+  text-align: center;
+}
+
+.col-3 {
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  font-size: 14px; 
+  line-height: 14px;
+  padding: 1% 0;
+  margin: auto;
+  text-align: center;
+}
+
+.col-6 {
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  font-size: 14px; 
+  line-height: 14px;
+  padding: 1% 0;
+  margin: auto;
+  text-align: center;
+  }
+
+.datarow {
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  font-size: 14px; 
+  line-height: 14px;
+  padding: 1% 0;
+  margin: auto;
+  text-align: center;
+  }
+
+.container{
+  width: 90%;
 }
