@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const betsController = require("../../controllers/betsController");
+const isAuthenticated = require("../../controllers/authentication");
 
 // Matches with "/api/bets"
 router.route("/")
-  .get(betsController.findAll)
+  .get(isAuthenticated, betsController.findAll)
   .post(betsController.create);
 
   // Matches with "/api/bets/user/:id"

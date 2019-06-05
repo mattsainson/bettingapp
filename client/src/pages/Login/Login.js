@@ -1,83 +1,81 @@
-import React, { Component } from 'react'
-import { login } from '../../components/UserFunctions/UserFunctions'
-import './Login.css'
+
+import React from 'react';
+import API from '../../utils/API';
 import UserContext from '../../utils/UserContext'; 
 
+class Login extends React.Component {
+  state = {
+    email: "",
+    password: "",
+    error: "",
+    currentUser: null
+  }
 
-class Login extends Component {
-    constructor() {
-        super()
-        this.state = {
-            email: '',
-            password: '',
-            error: '',
-            currentUser: null
-        }
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  }
 
-        this.onChange = this.onChange.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
-    }
+  handleLogin = (onLogin) => {
+    const { history } = this.props;
+    const { email, password } = this.state;
+    API.login({ email, password })
+      .then(res => {
+        onLogin(res.data);
+        history.push('/dashboard')
+      })
+      .catch(err => {
+        this.setState({ error: err.response.data.error })
+      });
+  }
 
-    onChange (e) {
-        this.setState({ [e.target.name]: e.target.value })
-    }
+  render() {
+    const { email, password, error } = this.state;
 
-    onSubmit (e) {
-        e.preventDefault()
+    return (
+      <UserContext.Consumer>
+        {({onLogin}) => (
+          <div>
+             <div className="container" >
+           <div className="col-md-6 mt-5 mx-auto">
 
-        const user = {
-            email: this.state.email,
-            password: this.state.password
-        }
+            <h1>Please Login</h1>
+            <label htmlFor="email">Email</label>
+            <input
+              autoComplete="on"
+              type="text"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+            />
 
-        login(user).then(res => {
-            if (!res)  {
-                this.props.history.push(`/dashboard`)
-            } else {
-                this.setState({error: res.error})
-            }
-        })
-    }
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
 
-    render () {
-        return (
-            <div>
-                <div className="container">
-                    <div className="col-md-6 mt-5 mx-auto">
-                        <form noValidate onSubmit={this.onSubmit}>
-                            <h1 className="h3 mb-3 font-weight-normal">Please Sign In</h1>
-                            <div className="form-group">
-                                <input type="email"
-                                    className="form-control"
-                                    name="email"
-                                    placeholder="Enter Email"
-                                    value={this.state.email}
-                                    onChange={this.onChange}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <input type="password"
-                                    className="form-control"
-                                    name="password"
-                                    placeholder="Enter Password"
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                />
-                            </div>
-                            <div className="alert alert-danger"
-                                style={{ visibility: this.state.error !== '' ? 'visible' : 'hidden' }}>{this.state.error}</div>
-                            <button type="submit" className="btn btn-lg btn-primary btn-block">
-                                Sign in
-                            </button>
-                        </form>
-                        <p class="margin medium-small"><a href="/register">Not Yet Registered? Register Now!</a></p>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+            <button className="btn btn-lg btn-primary" onClick={() => this.handleLogin(onLogin)}>Login</button>
+        <p class="margin medium-small"><a href="/register">Not Yet Registered? Register Now!</a></p>
+        
+            <br />
+            { error && (
+              <div className="alert">
+                {error}
+              </div>
+            )}
+           </div>
+          </div>
+          </div>
+        )}
+      </UserContext.Consumer>
+    );
+  }
 }
 
-
-export default Login
+export default Login;
 

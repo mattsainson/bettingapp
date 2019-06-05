@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import './Navbar.css'
-import UserContext from '../../utils/UserContext';
 
 class Navbar extends Component {
     logOut(e) {
         e.preventDefault()
-        localStorage.removeItem('usertoken')
+        sessionStorage.removeItem('user')
         this.props.history.push(`/login`)
     }
 
@@ -55,9 +54,8 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse navbar-brand justify-content-end"
                     id="navbar1">
                     
-                    {localStorage.usertoken ? userLink : loginRegLink}
+                    {sessionStorage.user ? userLink : loginRegLink}
                 </div>
-                <div>Hello, {this.props.email}</div>
 
             </nav>
         )
@@ -65,3 +63,4 @@ class Navbar extends Component {
 }
 
 export default withRouter(Navbar)
+
