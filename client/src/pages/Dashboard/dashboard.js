@@ -60,7 +60,6 @@ class Dashboard extends Component {
     };
 
     componentDidMount() {
-        const { user } = this.context;
         console.log('componentDidMount');
         this.getGames();
         this.getUserBets(this.state.userId);
@@ -91,7 +90,7 @@ class Dashboard extends Component {
         return user 
          ? (
             <div className="dashboard">
-
+                <h6> Welcome, {user.name} your current balance is $ {user.balance}</h6>
                 <div className="row">
                     <div className="col-8">
                         <Games games={this.state.games} />
