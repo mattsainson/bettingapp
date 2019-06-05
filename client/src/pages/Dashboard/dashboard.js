@@ -87,44 +87,44 @@ class Dashboard extends Component {
 
     render(props) {
         const { user } = this.context;
-        return user 
-         ? (
-            <div className="dashboard">
-                <h6> Welcome, {user.name} your current balance is $ {user.balance}</h6>
-                <div className="row">
-                    <div className="col-8">
-                        <Games games={this.state.games} />
-                    </div>
-                    <div className="col-4">
-                        <div className="row">
-                            <Summary
-                                balance={this.state.balance}
-                                outstanding={this.state.outstanding}
-                                ytdWins={this.state.ytdWins}
-                                ytdLosses={this.state.ytdLosses}
-                                lastBet={this.state.lastBet}
-                                firstBet={this.state.firstBet}
-                                biggestBet={this.state.biggestBet}
-                                avgBet={this.state.avgBet}
-                            />
-                        </div>
-                        <div className="row">
-                            <h6>Pie Chart</h6>
-                            <Pie data={this.pieData} />
-                        </div>
-                        <div className="row">
-                            <h6>Bar Chart</h6>
-                            <Bar data={this.barData} />
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <Bets bets={this.state.bets} />
-                </div>
+        return user
+            ? (
+                <div className="dashboard">
 
-            </div>
-        )
-        : <Redirect to="/login" />
+                    <div className="row">
+                        <div className="col-8">
+                            <Games games={this.state.games} history={this.props.history} />
+                        </div>
+                        <div className="col-4">
+                            <div className="row">
+                                <Summary
+                                    balance={this.state.balance}
+                                    outstanding={this.state.outstanding}
+                                    ytdWins={this.state.ytdWins}
+                                    ytdLosses={this.state.ytdLosses}
+                                    lastBet={this.state.lastBet}
+                                    firstBet={this.state.firstBet}
+                                    biggestBet={this.state.biggestBet}
+                                    avgBet={this.state.avgBet}
+                                />
+                            </div>
+                            <div className="row">
+                                <h6>Pie Chart</h6>
+                                <Pie data={this.pieData} />
+                            </div>
+                            <div className="row">
+                                <h6>Bar Chart</h6>
+                                <Bar data={this.barData} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <Bets bets={this.state.bets} />
+                    </div>
+
+                </div>
+            )
+            : <Redirect to="/login" />
     }
 }
 

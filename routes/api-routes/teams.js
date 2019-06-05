@@ -6,6 +6,10 @@ router.route("/")
   .get(teamsController.findAll)
   .post(teamsController.create);
 
+// Matches with "/api/teams/game/:id"
+router.route("/game/:id")
+  .get(teamsController.findByGameId)
+
 // Matches with "/api/teams/:id"
 router
   .route("/:id")
