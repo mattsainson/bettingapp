@@ -6,3 +6,60 @@
 .card {
     width: 18rem;
 }
+
+.bettingForm {
+    width: 30%;
+    display: inline-block;
+}
+
+.formLabel {
+    text-align: left;
+}
+
+.formWrapper {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-bet {
+    margin: 10px;
+}
+
+.tablerow:nth-child(odd){
+    background-color:#ebeefd;
+    color: black;
+}
+
+.tablerow:nth-child(even){
+    background-color:#f8dfb9;
+    color: black;
+}
+
+.headerrow {
+    background-color:#0e142e;
+    color: rgb(236, 242, 252);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.col-sm {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    font-size: 14px; 
+    line-height: 14px;
+    padding: 1% 0;
+    margin: auto;
+    text-align: center;
+}
+
+.datarow {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    font-size: 14px; 
+    line-height: 14px;
+    padding: 1% 0;
+    margin: auto;
+    text-align: center;
+}

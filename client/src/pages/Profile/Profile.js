@@ -20,7 +20,7 @@ import UserContext from '../../utils/UserContext';
 //     componentDidMount () {
 //         const token = sessionStorage.user
 //         const decoded = JSON.stringify(token)
-        
+
 //         this.setState({
 //             name: token.name,
 //             email: token.email,
@@ -65,73 +65,75 @@ import UserContext from '../../utils/UserContext';
 
 
 class Profile extends React.Component {
-    static contextType = UserContext;
-    constructor(props) {
-      super(props);
-      this.state = {
-        name:'',
-        email:'',
-        password:'',
-        balance:''
-      };
-       
-    }
-    componentDidMount(){
-      this.getProfile();
-    }
-    updateProfile(){
-       
-    }
- 
-    
- getProfile = () => {
+  static contextType = UserContext;
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      password: '',
+      balance: ''
+    };
+    this.updateProfile = this.updateProfile.bind(this);
+  }
+
+  componentDidMount() {
+    this.getProfile();
+  }
+
+  updateProfile() {
+    console.log('updateProfile');
+    this.props.history.push('/dashboard')
+  }
+
+  getProfile = () => {
     const { email, password, name, balance } = this.state;
     API.getprofile({ email, password, name, balance })
-      .then(function(res) {
-        if(res){
-            console.log(res)
-            this.setState({name:res.data.name});
-            this.setState({email:res.data.email});
-            this.setState({password:res.data.password});  
-          }
+      .then(function (res) {
+        if (res) {
+          console.log(res)
+          this.setState({ name: res.data.name });
+          this.setState({ email: res.data.email });
+          this.setState({ password: res.data.password });
+        }
       })
       .catch(err => console.log(err))
   }
-    
-     
-    render() {
-        const { user } = this.context;
-      return (
-        <div className="container">
-          <div className="row">  
-          <div class="col">
-            </div>
-            <div class="col">
-            
-              <form role="form">
-                <br styles="clear:both" />
-                <div className="form-group">
-                  <input value={user.name} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Name" required />
-                </div>
-                <div className="form-group">
-                  <input value={user.email} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Email" required />
-                </div>
-                <div className="form-group">
-                  <input value={user.balance} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Name" required />
-                </div>
-                <div className="form-group">
-                  <input value={user.password} type="password" onChange={this.handlePasswordChange} className="form-control" placeholder="Password" required />
-                </div>
-                
-                <button type="button" onClick={this.updateProfile} id="submit" name="submit" className="btn btn-primary pull-right">Update</button>
-              </form>
+
+
+  render() {
+    const { user } = this.context;
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col">
+          </div>
+          <div className="col">
+
+            <form role="form">
+              <br styles="clear:both" />
+              <div className="form-group">
+                <input defaultValue={user.name} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Name" required />
               </div>
-              <div class="col">
-            </div>
+              <div className="form-group">
+                <input defaultValue={user.email} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Email" required />
+              </div>
+              <div className="form-group">
+                <input defaultValue={user.balance} type="text" onChange={this.handleNameChange} className="form-control" placeholder="Balance" required />
+              </div>
+              <div className="form-group">
+                <input defaultValue={user.password} type="password" onChange={this.handlePasswordChange} className="form-control" placeholder="Password" required />
+              </div>
+
+              <button type="button" onClick={this.updateProfile} id="submit" name="submit" className="btn btn-primary pull-right">Update</button>
+            </form>
+          </div>
+          <div className="col">
           </div>
         </div>
-      )
-    }
+      </div>
+    )
+  }
 }
 
 export default Profile

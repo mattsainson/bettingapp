@@ -6,18 +6,15 @@ class Teams extends Component {
 
   render(props) {
     return (
-      <div className="container">
-        <div className="row">
+      <div className="container teams">
+        <div className="row headerrow">
           <div className="col-sm">Name</div>
-          <div className="col-sm">Home</div>
           <div className="col-sm">Spread</div>
           <div className="col-sm">Spread Payout</div>
           <div className="col-sm">Moneyline Payout</div>
           <div className="col-sm">Score</div>
         </div>
-        <div className="teams">
-          {this.props.children}
-        </div>
+        {this.props.children}
       </div>
     );
   }

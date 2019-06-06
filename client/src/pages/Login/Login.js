@@ -41,13 +41,13 @@ class Login extends React.Component {
           <div>
             <div className="container" >
               <div className="row">
-                <div class="col">
+                <div className="col">
                 </div>
-                <div class="col">
+                <div className="col">
 
 
                   <h1>Please Login</h1>
-                  <div class="form-group">
+                  <div className="form-group">
                     <input className="form-control"
                       placeholder="Email"
                       autoComplete="on"
@@ -58,7 +58,7 @@ class Login extends React.Component {
                     />
                   </div>
 
-                  <div class="form-group">
+                  <div className="form-group">
                     <input className="form-control"
                       placeholder="Password"
                       type="password"
@@ -69,7 +69,7 @@ class Login extends React.Component {
                   </div>
                   <br />
                   <button className="btn btn-lg btn-dark" onClick={() => this.handleLogin(onLogin)}>Login</button>
-                  <p class="margin medium-small"><a href="/register">Not Yet Registered? Register Now!</a></p>
+                  <p className="margin medium-small"><a href="/register">Not Yet Registered? Register Now!</a></p>
 
                   <br />
                   {error && (
@@ -78,7 +78,7 @@ class Login extends React.Component {
                     </div>
                   )}
                 </div>
-                <div class="col">
+                <div className="col">
                 </div>
               </div>
             </div>
