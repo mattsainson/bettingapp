@@ -6,11 +6,14 @@ module.exports = {
         db.Bet
             .findAll({ order: [['id', 'DESC']] })
             .then(async bets => {
-                const bets = await db.Bet.findAll();
+                const users = await db.User.findAll();
+                const games = await db.Game.findAll();
+                const teams = await db.Team.findAll();
                 // console.log("games", games);
                 // console.log("teams", teams);
                 const newBets = bets.map(b => ({
-                    userId: b.id,
+                    userId: b.userId,
+                    userName: users.filter(u => u.id === b.userId)[0].name,
                     gameId: b.gamesId,
                     teamId: b.teamId,
                     betType: b.betType,

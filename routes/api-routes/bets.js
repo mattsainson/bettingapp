@@ -10,13 +10,13 @@ router.route("/")
 // Matches with "/api/bets/user/:id"
 router
   .route("/user/:id")
-  .get(betsController.findByUserId)
+  .get(isAuthenticated, betsController.findByUserId)
 
 // Matches with "/api/bets/:id"
 router
   .route("/:id")
-  .get(betsController.findById)
-  .put(betsController.update)
+  .get(isAuthenticated, betsController.findById)
+  .put(isAuthenticated, betsController.update)
   .delete(betsController.remove);
 
 module.exports = router;
