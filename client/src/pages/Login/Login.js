@@ -1,7 +1,7 @@
 
 import React from 'react';
 import API from '../../utils/API';
-import UserContext from '../../utils/UserContext'; 
+import UserContext from '../../utils/UserContext';
 import "./Login.css";
 
 class Login extends React.Component {
@@ -37,51 +37,51 @@ class Login extends React.Component {
 
     return (
       <UserContext.Consumer>
-        {({onLogin}) => (
+        {({ onLogin }) => (
           <div>
-             <div className="container" >
-           <div className="row">
-           <div class="col">
-            </div>
-            <div class="col">
-      
-    
-            <h1>Please Login</h1>
-            <div class="form-group">
-            <input className="form-control"
-                placeholder="Email"
-              autoComplete="on"
-              type="text"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
-            </div>
+            <div className="container" >
+              <div className="row">
+                <div className="col">
+                </div>
+                <div className="col">
 
-            <div class="form-group">
-            <input className="form-control"
-                placeholder="Password"
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-            />
-            </div>
-            <br />
-            <button className="btn btn-lg btn-dark" onClick={() => this.handleLogin(onLogin)}>Login</button>
-        <p class="margin medium-small"><a href="/register">Not Yet Registered? Register Now!</a></p>
-        
-            <br />
-            { error && (
-              <div className="alert">
-                {error}
+
+                  <h1>Please Login</h1>
+                  <div className="form-group">
+                    <input className="form-control"
+                      placeholder="Email"
+                      autoComplete="on"
+                      type="text"
+                      name="email"
+                      value={email}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <input className="form-control"
+                      placeholder="Password"
+                      type="password"
+                      name="password"
+                      value={password}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <br />
+                  <button className="btn btn-lg btn-dark" onClick={() => this.handleLogin(onLogin)}>Login</button>
+                  <p className="margin medium-small"><a href="/register">Not Yet Registered? Register Now!</a></p>
+
+                  <br />
+                  {error && (
+                    <div className="alert">
+                      {error}
+                    </div>
+                  )}
+                </div>
+                <div className="col">
+                </div>
               </div>
-            )}
             </div>
-            <div class="col">
-            </div>
-           </div>
-          </div>
           </div>
         )}
       </UserContext.Consumer>

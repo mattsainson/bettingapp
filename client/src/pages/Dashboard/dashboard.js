@@ -6,7 +6,7 @@ import { Pie, Bar } from 'react-chartjs-2';
 import './Dashboard.css';
 import API from '../../utils/API';
 import UserContext from '../../utils/UserContext';
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 
 
@@ -16,14 +16,14 @@ class Dashboard extends Component {
         userId: 1,
         games: [],
         bets: [],
-        balance: 0,
-        outstanding: 0,
+        balance: 180,
+        outstanding: 250,
         ytdWins: 5,
         ytdLosses: 7,
-        lastBet: '',
-        firstBet: '',
-        biggestBet: 0,
-        avgBet: 0
+        lastBet: "Fri, April 2, 2019",
+        firstBet: "Mon, June 23, 2017",
+        biggestBet: 250,
+        avgBet: 60
     };
 
     pieData = {

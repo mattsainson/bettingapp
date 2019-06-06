@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "mander8385",
+    "password": "F150mysql9",
     "database": "bet",
     "host": "127.0.0.1",
     "port": 3306,

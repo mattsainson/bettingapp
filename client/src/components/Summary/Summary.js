@@ -46,7 +46,7 @@ const Summary = (props) => {
                             Last Bet
                         </div>
                         <div className="col-6">
-                            {props.lastBetAt}
+                            {props.lastBet}
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@ const Summary = (props) => {
                             First Bet
                         </div>
                         <div className="col-6">
-                            {props.firstBetAt}
+                            {props.firstBet}
                         </div>
                     </div>
 

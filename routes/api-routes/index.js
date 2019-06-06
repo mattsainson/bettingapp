@@ -10,10 +10,10 @@ const isAuthenticated = require("../../controllers/authentication");
 
 // All routes
 router.use('/users', usersRoutes);
-router.use('/bets',isAuthenticated, betsRoutes);
+router.use('/bets', betsRoutes);
 router.use('/money',isAuthenticated, betTransactionsRoutes);
-router.use('/games',isAuthenticated, gamesRoutes);
-router.use('/teams',isAuthenticated, teamsRoutes);
-router.use('/admin', isAuthenticated, adminRoutes);
+router.use('/games', gamesRoutes);
+router.use('/teams', teamsRoutes);
+router.use('/admin', adminRoutes);
 
 module.exports = router;

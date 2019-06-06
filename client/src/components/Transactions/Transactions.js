@@ -9,11 +9,11 @@ const Transactions = (props) => {
   
   return (
     <div className="container">
-      <div class="row">
-        <div class="col-sm">User</div>
-        <div class="col-sm">Bet</div>
-        <div class="col-sm">Date/Time</div>
-        <div class="col-sm">Amount</div>
+      <div className="row">
+        <div className="col-sm">User</div>
+        <div className="col-sm">Bet</div>
+        <div className="col-sm">Date/Time</div>
+        <div className="col-sm">Amount</div>
       </div>
       {/* {props.transactions.map(t => (
       <Transaction
