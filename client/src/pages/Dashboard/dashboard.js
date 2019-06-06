@@ -48,7 +48,7 @@ class Dashboard extends Component {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
             {
-                label: 'Some Bet Info',
+                label: 'Wins by Month',
                 backgroundColor: 'rgba(255,99,132,0.2',
                 borderColor: 'rgba(255,99,132,1)',
                 borderWidth: 1,
