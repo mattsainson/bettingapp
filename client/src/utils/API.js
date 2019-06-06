@@ -56,29 +56,28 @@ export default {
   login: function (userData) {
     return axios.post("api/users/login", userData);
   },
-  getGame: function (id) {
-    return axios.get('/api/games/' + id);
+  getGame: function (id, token) {
+    return axios.get('/api/games/' + id,{
+      headers: {
+        'Authorization': `Bearer ${token}`
+      } 
+    });
   },
-  getTeamsForGame: function (id) {
-    return axios.get('/api/teams/game/' + id);
+  getTeamsForGame: function (id, token) {
+    return axios.get('/api/teams/game/' + id, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      } 
+    });
   },
-  placeBet: function (data) {
-    return axios.post('/api/bets', data);
+  placeBet: function (data, token) {
+    return axios.post('/api/bets', data, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      } 
+    });
   },
   getprofile: function () {
     return axios.get("api/users/");
   } 
-
-  // // Gets the book with the given id
-  // getBook: function(id) {
-  //   return axios.get("/api/books/" + id);
-  // },
-  // // Deletes the book with the given id
-  // deleteBook: function(id) {
-  //   return axios.delete("/api/books/" + id);
-  // },
-  // // Saves a book to the database
-  // saveBook: function(bookData) {
-  //   return axios.post("/api/books", bookData);
-  // }
 };
