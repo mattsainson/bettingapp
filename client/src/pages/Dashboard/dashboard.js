@@ -16,14 +16,14 @@ class Dashboard extends Component {
         userId: 1,
         games: [],
         bets: [],
-        balance: 0,
-        outstanding: 0,
+        balance: 180,
+        outstanding: 250,
         ytdWins: 5,
         ytdLosses: 7,
-        lastBet: '',
-        firstBet: '',
-        biggestBet: 0,
-        avgBet: 0
+        lastBet: "Fri, April 2, 2019",
+        firstBet: "Mon, June 23, 2017",
+        biggestBet: 250,
+        avgBet: 60
     };
 
     pieData = {
@@ -90,7 +90,7 @@ class Dashboard extends Component {
         return user
             ? (
                 <div className="dashboard">
-
+                    <h6>Welcome {user.name}, Your Current Balance is $ {user.balance}</h6>
                     <div className="row">
                         <div className="col-8">
                             <Games games={this.state.games} history={this.props.history} />

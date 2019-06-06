@@ -2,26 +2,27 @@ import React, { Component } from 'react';
 import Teams from '../../components/Teams/Teams';
 import './Betting.css';
 import API from '../../utils/API';
+import Team from '../../components/Team/Team';
 
 class Betting extends Component {
 
-    constructor (props) {
-    super(props);
-    this.state = {
-        betIsValid: false,
-        teams: [{id: 1, name: 'team1'}, {id: 2, name: 'team2'}],
-        user: { id: 1, name: "Matt" },
-        game: { id: 1 },
-        teamId: 0,
-        betType: '',
-        wager: 0,
-        gameId: 0
+    constructor(props) {
+        super(props);
+        this.state = {
+            betIsValid: false,
+            teams: [{ id: 1, name: 'team1' }, { id: 2, name: 'team2' }],
+            user: { id: 1, name: "Matt" },
+            game: { id: 1 },
+            teamId: 0,
+            betType: '',
+            wager: 0,
+            gameId: 0
+        }
     }
-}
 
     componentDidMount() {
         const gameid = this.props.match.params.gameid;
-        this.setState({gameId: gameid});
+        this.setState({ gameId: gameid });
         // console.log('gameid', gameid); // ok
         API.getGame(gameid)
             .then(res => {
@@ -33,10 +34,10 @@ class Betting extends Component {
     }
 
     getTeamsForGame = (id) => {
-        console.log('getTeamsForGame',id);
+        console.log('getTeamsForGame', id);
         API.getTeamsForGame(id)
             .then(res => {
-                console.log('getTeamsForGame',res.data);
+                console.log('getTeamsForGame', res.data);
                 this.setState({ teams: res.data });
             })
             .catch(err => console.log(err));
@@ -83,7 +84,19 @@ class Betting extends Component {
     render(props) {
         return (
             <div className="bettingform">
-                <Teams gameId={this.state.gameId} teams={this.state.teams} />
+                <Teams>
+                    {this.state.teams.map(t => (
+                        <Team
+                            key={t.id}
+                            name={t.name}
+                            home={t.home}
+                            spread={t.spread}
+                            spreadPayout={t.spreadPayout}
+                            moneylinePayout={t.moneylinePayout}
+                            score={t.score}
+                        />
+                    ))}
+                </Teams>
                 <form>
                     <div className="form-group">
                         <label htmlFor="teamSelect">Team</label>
