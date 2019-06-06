@@ -2,21 +2,25 @@ import React, { Component } from 'react';
 import Teams from '../../components/Teams/Teams';
 import './Betting.css';
 import API from '../../utils/API';
+import UserContext from '../../utils/UserContext';
+
 
 class Betting extends Component {
-
+    static contextType = UserContext;
     constructor (props) {
     super(props);
+    const { user } = this.context;
     this.state = {
         betIsValid: false,
         teams: [{id: 1, name: 'team1'}, {id: 2, name: 'team2'}],
-        user: { id: 1, name: "Matt" },
+        user: {id: user.id, name: user.name},
         game: { id: 1 },
         teamId: 0,
         betType: '',
         wager: 0,
         gameId: 0
     }
+    console.log(user)
 }
 
     componentDidMount() {

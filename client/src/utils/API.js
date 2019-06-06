@@ -56,17 +56,29 @@ export default {
   login: function (userData) {
     return axios.post("api/users/login", userData);
   },
-  getGame: function (id) {
-    return axios.get('/api/games/' + id);
+  getGame: function (id, token) {
+    return axios.get('/api/games/' + id,{
+      headers: {
+        'Authorization': `Bearer ${token}`
+      } 
+    });
   },
-  getTeamsForGame: function (id) {
-    return axios.get('/api/teams/game/' + id);
+  getTeamsForGame: function (id, token) {
+    return axios.get('/api/teams/game/' + id, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      } 
+    });
   },
-  getUserBets: function (userId) {
-    return axios.get('/api/bets/user/' + userId);
-  },
-  placeBet: function (data) {
-    return axios.post('/api/bets', data);
+  // getUserBets: function (userId) {
+  //   return axios.get('/api/bets/user/' + userId);
+  // },
+  placeBet: function (data, token) {
+    return axios.post('/api/bets', data, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      } 
+    });
   },
   getprofile: function () {
     return axios.get("api/users/");

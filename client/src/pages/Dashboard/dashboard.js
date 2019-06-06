@@ -123,8 +123,8 @@ class Dashboard extends Component {
                     </div>
 
                 </div>
+            ) : ( <Redirect to="/login" />
             )
-            : <Redirect to="/login" />
     }
 }
 

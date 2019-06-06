@@ -26,7 +26,7 @@ module.exports = {
                   error: "Password and Username are not matching!"
                 });
               }
-              const { email, _id: id, balance, name } = dbModel;
+              const { email, id , balance, name } = dbModel;
     
               const token = jwt.sign({
                   email,
