@@ -81,9 +81,22 @@ class Profile extends React.Component {
     this.getProfile();
   }
 
-  updateProfile() {
-    console.log('updateProfile');
-    this.props.history.push('/dashboard')
+  updateProfile = e => {
+    e.preventDefault();
+    var profile = {
+      id: 1,
+      name: this.state.name,
+      email: this.state.email,
+      balance: this.state.balance
+    }
+    API.updateProfile(profile)
+      .then(res =>
+        this.props.history.push('/dashboard')
+      )
+      .catch(err => {
+        console.log(err);
+        this.props.history.push('/dashboard');
+      });
   }
 
   getProfile = () => {

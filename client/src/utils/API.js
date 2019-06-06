@@ -79,5 +79,12 @@ export default {
   },
   getprofile: function () {
     return axios.get("api/users/");
-  } 
+  },
+  updateProfile: function (data, token) {
+    return axios.put('/api/users/'+data.id, data, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      } 
+    });
+  }
 };

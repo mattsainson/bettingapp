@@ -7,7 +7,6 @@ const Bets = (props) => {
     <div className="container">
       <h1>Bets</h1>
       <div className="row headerrow">
-        <div className="col-sm"><h6>User</h6></div>
         <div className="col-sm"><h6>Game</h6></div>
         <div className="col-sm"><h6>Team</h6></div>
         <div className="col-sm"><h6>Bet Type</h6></div>
@@ -18,7 +17,7 @@ const Bets = (props) => {
       {props.bets.map(b => (
       <Bet
         key={b.id.toString()}
-        userId={b.id}
+        userId={b.userId}
         gameId={b.gameId}
         teamId={b.teamId}
         betType={b.betType}
